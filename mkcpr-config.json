@@ -4,5 +4,7 @@
   "outputFilePath" : "/home/san/Projects/mkcpr/output.tex",
   "excluded" : [".vscode", "__pycache__"],
   "columns" : 2,
-  "templatePlaceHolder" : "CODE HERE"
+  "templatePlaceHolder" : "CODE HERE",
+  "sortBefore" : ["Data Structures"],
+  "sortAfter" : ["Extras"]
 }

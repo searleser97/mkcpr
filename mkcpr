@@ -32,6 +32,9 @@ excluded = set(['.vscode', '__pycache__'])
 numberOfColumns = 2
 TextToReplaceInTemplate = "CODE HERE"
 
+sortBefore = set()
+sortAfter = set()
+
 
 output = ""
 
@@ -132,10 +135,8 @@ def main(currPath, depth, sections):
     sortedDirs = sorted(
         listdir(currPath),
         key=lambda x: (
-            x == 'Extras',
-            x == 'Problems Solved',
-            x != 'Coding Resources',
-            x != 'Data Structures',
+            x in sortAfter,
+            x not in sortBefore,
             isdir(join(currPath, x)),
             x.split('.')[0].lower()
         )
@@ -172,7 +173,11 @@ if __name__ == '__main__':
 
     try:
         with open(configFilePath, 'r') as f:
-            config = json.loads(f.read())
+            try:
+                config = json.loads(f.read())
+            except json.decoder.JSONDecodeError:
+                print("Error: Malformed configuration file")
+                exit(0)
             try:
                 codeFolder = config["codeFolder"]
                 templatePath = config["templatePath"]
@@ -180,12 +185,16 @@ if __name__ == '__main__':
             except KeyError as e:
                 print("Error: Invalid config file. Missing", e, "entry in config file")
                 exit(0)
-            try:
-                excluded = config["excluded"]
+            if "excluded" in config:
+                excluded = set(config["excluded"])
+            if "columns" in config:
                 numberOfColumns = config["columns"]
+            if "templatePlaceHolder" in config:
                 TextToReplaceInTemplate = config["templatePlaceHolder"]
-            except KeyError:
-                pass
+            if "sortBefore" in config:
+                sortBefore = set(config["sortBefore"])
+            if "sortAfter" in config:
+                sortAfter = set(config["sortAfter"])
     except FileNotFoundError:
         print("Error: Configuration file not found in \"" + configFilePath + "\"")
         exit(0)
