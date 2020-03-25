@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(V + V!)}
+\PYG{k+kt}{void} \PYG{n+nf}{allToposorts}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{u} \PYG{o}{\PYGZlt{}} \PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{u}\PYG{o}{++}\PYG{p}{)}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{indegree}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{n}{indeg0}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{u}\PYG{p}{);}
+  \PYG{n}{dfs}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

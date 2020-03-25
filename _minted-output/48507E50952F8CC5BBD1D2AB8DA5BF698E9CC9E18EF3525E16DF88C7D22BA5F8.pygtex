@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}../Number Theory/Modular Exponentiation.cpp\PYGZdq{}}
+
+\PYG{k+kt}{bool} \PYG{n+nf}{isPrime}\PYG{p}{(}\PYG{n}{lli} \PYG{n}{p}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{20}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{p} \PYG{o}{==} \PYG{l+m+mi}{2} \PYG{o}{||} \PYG{n}{p} \PYG{o}{==} \PYG{l+m+mi}{3}\PYG{p}{)} \PYG{k}{return} \PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{k}{if} \PYG{p}{((}\PYG{o}{\PYGZti{}}\PYG{n}{p} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{||} \PYG{n}{p} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{n}{lli} \PYG{n}{d} \PYG{o}{=} \PYG{n}{p} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{phi} \PYG{o}{=} \PYG{n}{d}\PYG{p}{,} \PYG{n}{r} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{k}{while} \PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{d} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{d} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{r}\PYG{o}{++}\PYG{p}{;}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{k}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// set seed with: int main() \PYGZob{} srand(time(0)); \PYGZcb{}}
+    \PYG{n}{lli} \PYG{n}{a} \PYG{o}{=} \PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n}{rand}\PYG{p}{()} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{p} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{3}\PYG{p}{);}  \PYG{c+c1}{// [2, p \PYGZhy{} 2]}
+    \PYG{n}{lli} \PYG{n}{e} \PYG{o}{=} \PYG{n}{pow}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{d}\PYG{p}{,} \PYG{n}{p}\PYG{p}{),} \PYG{n}{r2} \PYG{o}{=} \PYG{n}{r}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{e} \PYG{o}{==} \PYG{l+m+mi}{1} \PYG{o}{||} \PYG{n}{e} \PYG{o}{==} \PYG{n}{phi}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+    \PYG{k+kt}{bool} \PYG{n}{flag} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{k}{while} \PYG{p}{(}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{r2}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{e} \PYG{o}{=} \PYG{n}{multiply}\PYG{p}{(}\PYG{n}{e}\PYG{p}{,} \PYG{n}{e}\PYG{p}{,} \PYG{n}{p}\PYG{p}{);}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{e} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{e} \PYG{o}{==} \PYG{n}{phi}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{flag} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{k}{break}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{flag}\PYG{p}{)} \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

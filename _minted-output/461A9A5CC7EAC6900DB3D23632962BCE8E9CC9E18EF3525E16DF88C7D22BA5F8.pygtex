@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{adj}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{vis}\PYG{p}{;}
+\PYG{k+kt}{bool} \PYG{n}{isDirected} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+\end{Verbatim}

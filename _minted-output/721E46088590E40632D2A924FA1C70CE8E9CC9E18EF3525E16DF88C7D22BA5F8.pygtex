@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(V\PYGZca{}3)}
+\PYG{k+kt}{void} \PYG{n+nf}{floydwarshall}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{n}{d}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{k}\PYG{o}{++}\PYG{p}{)}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{u} \PYG{o}{\PYGZlt{}} \PYG{n}{d}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{u}\PYG{o}{++}\PYG{p}{)}
+      \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{v} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{v} \PYG{o}{\PYGZlt{}} \PYG{n}{d}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{v}\PYG{o}{++}\PYG{p}{)}
+        \PYG{n}{d}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{d}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{],} \PYG{n}{d}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]} \PYG{o}{+} \PYG{n}{d}\PYG{p}{[}\PYG{n}{k}\PYG{p}{][}\PYG{n}{v}\PYG{p}{]);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

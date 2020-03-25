@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// pf = prime factors}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}../Number Theory/GCD.cpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}./Is Prime Miller Rabin.cpp\PYGZdq{}}
+
+\PYG{k}{typedef} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{k+kt}{int} \PYG{n}{li}\PYG{p}{;}
+\PYG{c+c1}{// if li == \PYGZus{}\PYGZus{}int128\PYGZus{}t: use map\PYGZlt{}li, int\PYGZgt{} Map;}
+\PYG{k}{typedef} \PYG{n}{unordered\PYGZus{}map}\PYG{o}{\PYGZlt{}}\PYG{n}{li}\PYG{p}{,} \PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{Map}\PYG{p}{;}
+
+\PYG{n}{li} \PYG{n+nf}{\PYGZus{}abs}\PYG{p}{(}\PYG{n}{li} \PYG{n}{a}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{k}{return} \PYG{n}{a} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0} \PYG{o}{?} \PYG{o}{\PYGZhy{}}\PYG{n+nl}{a} \PYG{p}{:} \PYG{n}{a}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

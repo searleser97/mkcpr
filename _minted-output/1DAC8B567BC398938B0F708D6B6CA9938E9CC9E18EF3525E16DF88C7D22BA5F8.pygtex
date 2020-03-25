@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// comp = component}
+\PYG{k+kt}{int} \PYG{n}{compId}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{adj}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{getComp}\PYG{p}{;}
+\end{Verbatim}

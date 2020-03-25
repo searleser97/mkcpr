@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(N)}
+\PYG{k+kt}{void} \PYG{n+nf}{SCCS}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{n}{s} \PYG{o}{=} \PYG{n}{low} \PYG{o}{=} \PYG{n}{disc} \PYG{o}{=} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{());}
+  \PYG{n}{Time} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{top} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{sccs}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{u} \PYG{o}{\PYGZlt{}} \PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{u}\PYG{o}{++}\PYG{p}{)} \PYG{n}{dfsSCCS}\PYG{p}{(}\PYG{n}{u}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

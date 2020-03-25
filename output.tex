@@ -1,0 +1,715 @@
+% run the command ' lualatex -shell-escape Reference.tex ' twice in the terminal to visualize table of contents
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{minted}
+\usepackage{python}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{needspace}
+\usepackage{sectsty}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{afterpage}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[inline]{enumitem}
+
+\geometry{letterpaper, portrait, left=0.5cm, right=0.5cm, top=1.8cm, bottom=1cm}
+
+\sectionfont{\Huge\bfseries\sffamily}
+
+\setminted{
+    style=tango,
+    breaklines=true
+}
+
+\setlength{\headsep}{0.5cm}
+\setlength{\columnsep}{0.5cm}
+\setlength{\columnseprule}{0.01cm}
+\renewcommand{\columnseprulecolor}{\color{gray}}
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LO,RE]{\textsf{First, solve the problem. Then, write the code.}}
+\fancyhead[LE,RO]{\textsf{\leftmark}}
+\fancyfoot[LE,RO]{\textbf{\textsf{\thepage}}}
+
+\renewcommand{\headrulewidth}{0.01cm}
+\renewcommand{\footrulewidth}{0.01cm}
+
+\setlength{\parindent}{0em}
+% column space
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+% upper and lower padding
+\renewcommand{\arraystretch}{1.5} % Default value: 1
+
+\definecolor{prussianblue}{rgb}{0.0, 0.19, 0.33}
+\definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
+\definecolor{lapislazuli}{rgb}{0.15, 0.38, 0.61}
+\definecolor{mediumelectricblue}{rgb}{0.01, 0.31, 0.59}
+\definecolor{smalt(darkpowderblue)}{rgb}{0.0, 0.2, 0.6}
+\definecolor{yaleblue}{rgb}{0.06, 0.3, 0.57}
+\definecolor{skobeloff}{rgb}{0.0, 0.48, 0.45}
+\definecolor{pinegreen}{rgb}{0.0, 0.47, 0.44}
+
+\begin{document}
+\fontfamily{lmss}
+\selectfont
+\begin{multicols*}{2}
+	\tableofcontents
+	\newpage
+	\needspace{16\baselineskip}
+\sectionfont{\bfseries\sffamily\centering\Huge}
+\vspace{1em}
+\section*{Graphs}
+\markboth{GRAPHS}{}
+\addcontentsline{toc}{section}{Graphs}
+\vspace{3em}
+\subsectionfont{\bfseries\sffamily\centering\LARGE}
+\vspace{0em}
+\subsection*{Data Structures}
+\addcontentsline{toc}{subsection}{Data Structures}
+\vspace{2em}
+\subsubsectionfont{\large\bfseries\sffamily\underline}
+\subsubsection*{Union Find}
+\addcontentsline{toc}{subsubsection}{Union Find}
+\begin{minted}{cpp}
+struct UnionFind {
+  int n;
+  vector<int> dad, size;
+
+  UnionFind(int N) : n(N), dad(N), size(N, 1) {
+    while (N--) dad[N] = N;
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+  // O(lg*(N))
+  int root(int u) {
+    if (dad[u] == u) return u;
+    return dad[u] = root(dad[u]);
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{8\baselineskip}
+\begin{minted}{cpp}
+  // O(1)
+  void join(int u, int v) {
+    int Ru = root(u), Rv = root(v);
+    if (Ru == Rv) return;
+    if (size[Ru] > size[Rv]) swap(Ru, Rv);
+    --n, dad[Ru] = Rv;
+    size[Rv] += size[Ru];
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+  // O(lg*(N))
+  bool areConnected(int u, int v) {
+    return root(u) == root(v);
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+  int getSize(int u) { return size[root(u)]; }
+
+  int numberOfSets() { return n; }
+};
+\end{minted}
+
+\needspace{9\baselineskip}
+\subsectionfont{\large\bfseries\sffamily\underline}
+\subsection*{Articulation Points And Bridges}
+\addcontentsline{toc}{subsection}{Articulation Points And Bridges}
+\begin{minted}{cpp}
+// APB = articulation points and bridges
+// Ap = Articulation Point
+// br = bridges, p = parent
+// disc = discovery time
+// low = lowTime, ch = children
+// nup = number of edges from u to p
+\end{minted}
+\vspace{-12pt}
+\needspace{5\baselineskip}
+\begin{minted}{cpp}
+typedef pair<int, int> Edge;
+int Time;
+vector<vector<int>> adj;
+vector<int> disc, low, isAp;
+vector<Edge> br;
+
+void init(int N) { adj.assign(N, vector<int>()); }
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+void addEdge(int u, int v) {
+  adj[u].push_back(v);
+  adj[v].push_back(u);
+}
+\end{minted}
+\vspace{-12pt}
+\needspace{15\baselineskip}
+\begin{minted}{cpp}
+int dfsAPB(int u, int p) {
+  int ch = 0, nup = 0;
+  low[u] = disc[u] = ++Time;
+  for (int &v : adj[u]) {
+    if (v == p && !nup++) continue;
+    if (!disc[v]) {
+      ch++, dfsAPB(v, u);
+      if (disc[u] <= low[v]) isAp[u]++;
+      if (disc[u] < low[v]) br.push_back({u, v});
+      low[u] = min(low[u], low[v]);
+    } else
+      low[u] = min(low[u], disc[v]);
+  }
+  return ch;
+}
+\end{minted}
+\vspace{-12pt}
+\needspace{8\baselineskip}
+\begin{minted}{cpp}
+// O(N)
+void APB() {
+  br.clear();
+  isAp = low = disc = vector<int>(adj.size());
+  Time = 0;
+  for (int u = 0; u < adj.size(); u++)
+    if (!disc[u]) isAp[u] = dfsAPB(u, u) > 1;
+}
+\end{minted}
+
+\needspace{6\baselineskip}
+\subsectionfont{\large\bfseries\sffamily\underline}
+\subsection*{Topological Sort}
+\addcontentsline{toc}{subsection}{Topological Sort}
+\begin{minted}{cpp}
+// vis = visited
+vector<vector<int>> adj;
+vector<int> vis, toposorted;
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+void init(int N) {
+  adj.assign(N, vector<int>());
+  vis.assign(N, 0), toposorted.clear();
+}
+
+void addEdge(int u, int v) { adj[u].push_back(v); }
+\end{minted}
+\vspace{-12pt}
+\needspace{12\baselineskip}
+\begin{minted}{cpp}
+// returns false if there is a cycle
+// O(E)
+bool toposort(int u) {
+  vis[u] = 1;
+  for (auto &v : adj[u])
+    if (v != u && vis[v] != 2 &&
+        (vis[v] || !toposort(v)))
+      return false;
+  vis[u] = 2;
+  toposorted.push_back(u);
+  return true;
+}
+\end{minted}
+\vspace{-12pt}
+\needspace{6\baselineskip}
+\begin{minted}{cpp}
+// O(V + E)
+bool toposort() {
+  for (int u = 0; u < adj.size(); u++)
+    if (!vis[u] && !toposort(u)) return false;
+  return true;
+}
+\end{minted}
+
+\needspace{10\baselineskip}
+\subsectionfont{\bfseries\sffamily\centering\LARGE}
+\vspace{0em}
+\subsection*{Flow}
+\addcontentsline{toc}{subsection}{Flow}
+\vspace{2em}
+\subsubsectionfont{\large\bfseries\sffamily\underline}
+\subsubsection*{Max Flow Min Cut Edmonds-Karp}
+\addcontentsline{toc}{subsubsection}{Max Flow Min Cut Edmonds-Karp}
+\begin{minted}{cpp}
+// cap[a][b] = Capacity left from a to b
+// iflow = initial flow, icap = initial capacity
+// pathMinCap = capacity bottleneck for a path (s->t)
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+typedef int T;
+vector<int> level;
+vector<vector<int>> adj, cap;
+T inf = 1 << 30;
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+void init(int N) {
+  adj.assign(N, vector<int>());
+  cap.assign(N, vector<int>(N));
+}
+\end{minted}
+\vspace{-12pt}
+\needspace{6\baselineskip}
+\begin{minted}{cpp}
+void addEdge(int u, int v, T icap, T iflow = 0) {
+  if (!cap[u][v])
+    adj[u].push_back(v), adj[v].push_back(u);
+  cap[u][v] = icap - iflow;
+  // cap[v][u] = cap[u][v]; // if graph is undirected
+}
+\end{minted}
+\vspace{-12pt}
+\needspace{19\baselineskip}
+\begin{minted}{cpp}
+// O(N)
+T bfs(int s, int t, vector<int> &dad) {
+  dad.assign(adj.size(), -1);
+  queue<pair<int, T>> q;
+  dad[s] = s, q.push(s);
+  while (q.size()) {
+    int u = q.front().first;
+    T pathMinCap = q.front().second;
+    q.pop();
+    for (int v : adj[u])
+      if (dad[v] == -1 && cap[u][v]) {
+        dad[v] = u;
+        T flow = min(pathMinCap, cap[u][v]);
+        if (v == t) return flow;
+        q.push({v, flow});
+      }
+  }
+  return 0;
+}
+\end{minted}
+\vspace{-12pt}
+\needspace{14\baselineskip}
+\begin{minted}{cpp}
+// O(E^2 * V)
+T maxFlowMinCut(int s, int t) {
+  T maxFlow = 0;
+  vector<int> dad;
+  while (T flow = bfs(s, t, dad)) {
+    maxFlow += flow;
+    int u = t;
+    while (u != s) {
+      cap[dad[u]][u] -= flow, cap[u][dad[u]] += flow;
+      u = dad[u];
+    }
+  }
+  return maxFlow;
+}
+\end{minted}
+
+\needspace{11\baselineskip}
+\subsectionfont{\bfseries\sffamily\centering\LARGE}
+\vspace{0em}
+\subsection*{Shortest Paths}
+\addcontentsline{toc}{subsection}{Shortest Paths}
+\vspace{2em}
+\subsubsectionfont{\large\bfseries\sffamily\underline}
+\subsubsection*{Dijkstra}
+\addcontentsline{toc}{subsubsection}{Dijkstra}
+\begin{minted}{cpp}
+// s = source
+typedef int T;
+typedef pair<T, int> DistNode;
+T inf = 1 << 30;
+vector<vector<int>> adj;
+unordered_map<int, unordered_map<int, T>> weight;
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+void init(int N) {
+  adj.assign(N, vector<int>());
+  weight.clear();
+}
+\end{minted}
+\vspace{-12pt}
+\needspace{7\baselineskip}
+\begin{minted}{cpp}
+void addEdge(int u, int v, T w, bool isDirected = 0) {
+  adj[u].push_back(v);
+  weight[u][v] = w;
+  if (isDirected) return;
+  adj[v].push_back(u);
+  weight[v][u] = w;
+}
+\end{minted}
+\vspace{-12pt}
+\needspace{16\baselineskip}
+\begin{minted}{cpp}
+// ~ O(E * lg(V))
+vector<T> dijkstra(int s) {
+  vector<long long int> dist(adj.size(), inf);
+  priority_queue<DistNode> q;
+  q.push({0, s}), dist[s] = 0;
+  while (q.size()) {
+    DistNode top = q.top();
+    q.pop();
+    int u = top.second;
+    if (dist[u] < -top.first) continue;
+    for (int &v : adj[u]) {
+      T d = dist[u] + weight[u][v];
+      if (d < dist[v]) q.push({-(dist[v] = d), v});
+    }
+  }
+  return dist;
+}
+\end{minted}
+
+\needspace{13\baselineskip}
+\sectionfont{\bfseries\sffamily\centering\Huge}
+\vspace{1em}
+\section*{Maths}
+\markboth{MATHS}{}
+\addcontentsline{toc}{section}{Maths}
+\vspace{3em}
+\subsectionfont{\bfseries\sffamily\centering\LARGE}
+\vspace{0em}
+\subsection*{Data Structures}
+\addcontentsline{toc}{subsection}{Data Structures}
+\vspace{2em}
+\subsubsectionfont{\large\bfseries\sffamily\underline}
+\subsubsection*{Matrix}
+\addcontentsline{toc}{subsubsection}{Matrix}
+\begin{minted}{cpp}
+template <class T>
+struct Matrix {
+  int rows, cols;
+  vector<vector<T>> m;
+\end{minted}
+\vspace{-12pt}
+\needspace{3\baselineskip}
+\begin{minted}{cpp}
+  Matrix(int r, int c) : rows(r), cols(c) {
+    m.assign(r, vector<T>(c));
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{2\baselineskip}
+\begin{minted}{cpp}
+  Matrix(const vector<vector<T>>& b)
+      : rows(b.size()), cols(b[0].size()), m(b) {}
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+  Matrix(int n) {
+    m.assign(n, vector<T>(n));
+    while (n--) m[n][n] = 1;
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{3\baselineskip}
+\begin{minted}{cpp}
+  vector<T>& operator[](int i) const {
+    return const_cast<Matrix*>(this)->m[i];
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{8\baselineskip}
+\begin{minted}{cpp}
+  // O(N * M)
+  Matrix operator+(const Matrix& b) {
+    Matrix ans(rows, cols);
+    for (int i = 0; i < rows; i++)
+      for (int j = 0; j < m[i].size(); j++)
+        ans[i][j] = m[i][j] + b[i][j];
+    return ans;
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{8\baselineskip}
+\begin{minted}{cpp}
+  // O(N * M)
+  Matrix operator-(const Matrix& b) {
+    Matrix ans(rows, cols);
+    for (int i = 0; i < rows; i++)
+      for (int j = 0; j < m[i].size(); j++)
+        ans[i][j] = m[i][j] - b[i][j];
+    return ans;
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{10\baselineskip}
+\begin{minted}{cpp}
+  // O(N^3)
+  Matrix operator*(const Matrix& b) {
+    if (cols != b.rows) return Matrix(0, 0);
+    Matrix ans(rows, b.cols);
+    for (int i = 0; i < rows; i++)
+      for (int j = 0; j < b[i].size(); j++)
+        for (int k = 0; k < b.rows; k++)
+          ans[i][j] += m[i][k] * b[k][j];
+    return ans;
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{3\baselineskip}
+\begin{minted}{cpp}
+  Matrix& operator+=(const Matrix& b) {
+    return *this = *this + b;
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{3\baselineskip}
+\begin{minted}{cpp}
+  Matrix& operator-=(const Matrix& b) {
+    return *this = *this - b;
+  }
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+  Matrix& operator*=(const Matrix& b) {
+    return *this = *this * b;
+  }
+};
+\end{minted}
+
+\needspace{15\baselineskip}
+\subsectionfont{\bfseries\sffamily\centering\LARGE}
+\vspace{0em}
+\subsection*{Number Theory}
+\addcontentsline{toc}{subsection}{Number Theory}
+\vspace{2em}
+\subsubsectionfont{\large\bfseries\sffamily\underline}
+\subsubsection*{Binary Exponentiation}
+\addcontentsline{toc}{subsubsection}{Binary Exponentiation}
+\begin{minted}{cpp}
+typedef long long int li;
+
+li binPow(li a, li p) {
+  li ans = 1LL;
+  while (p) {
+    if (p & 1LL) ans *= a;
+    a *= a, p >>= 1LL;
+  }
+  return ans;
+}
+\end{minted}
+
+\needspace{15\baselineskip}
+\subsubsectionfont{\large\bfseries\sffamily\underline}
+\subsubsection*{Divisibility Criterion}
+\addcontentsline{toc}{subsubsection}{Divisibility Criterion}
+\begin{minted}{py}
+def divisorCriteria(n, lim):
+    results = []
+    tenElevated = 1
+    for i in range(lim):
+        # remainder = pow(10, i, n)
+        remainder = tenElevated % n
+        negremainder = remainder - n
+        if(remainder <= abs(negremainder)):
+            results.append(remainder)
+        else:
+            results.append(negremainder)
+        tenElevated *= 10
+    return results
+
+
+\end{minted}
+\vspace{-12pt}
+\needspace{14\baselineskip}
+\begin{minted}{py}
+def testDivisibility(dividend, divisor, divisor_criteria):
+    dividend = str(dividend)
+    addition = 0
+    dividendSize = len(dividend)
+    i = dividendSize - 1
+    j = 0
+    while j < dividendSize:
+        addition += int(dividend[i]) * divisor_criteria[j]
+        i -= 1
+        j += 1
+    return addition % divisor == 0
+
+
+\end{minted}
+\vspace{-12pt}
+\needspace{7\baselineskip}
+\begin{minted}{py}
+if __name__ == '__main__':
+    dividend, divisor = map(int, input().split())
+    divisor_criteria = divisorCriteria(divisor, len(str(dividend)))
+    print(divisor_criteria)
+    print(testDivisibility(dividend, divisor, divisor_criteria))
+
+\end{minted}
+
+\needspace{30\baselineskip}
+\subsectionfont{\bfseries\sffamily\centering\LARGE}
+\vspace{0em}
+\subsection*{Primes}
+\addcontentsline{toc}{subsection}{Primes}
+\vspace{2em}
+\subsubsectionfont{\large\bfseries\sffamily\underline}
+\subsubsection*{Is Prime Miller Rabin}
+\addcontentsline{toc}{subsubsection}{Is Prime Miller Rabin}
+\begin{minted}{cpp}
+#include "../Number Theory/Modular Exponentiation.cpp"
+
+bool isPrime(lli p, int k = 20) {
+  if (p == 2 || p == 3) return 1;
+  if ((~p & 1) || p == 1) return 0;
+  lli d = p - 1, phi = d, r = 0;
+  while (~d & 1) d >>= 1, r++;
+  while (k--) {
+    // set seed with: int main() { srand(time(0)); }
+    lli a = 2 + rand() % (p - 3);  // [2, p - 2]
+    lli e = pow(a, d, p), r2 = r;
+    if (e == 1 || e == phi) continue;
+    bool flag = 1;
+    while (--r2) {
+      e = multiply(e, e, p);
+      if (e == 1) return 0;
+      if (e == phi) {
+        flag = 0;
+        break;
+      }
+    }
+    if (flag) return 0;
+  }
+  return 1;
+}
+\end{minted}
+
+\needspace{15\baselineskip}
+\subsubsectionfont{\large\bfseries\sffamily\underline}
+\subsubsection*{Primes Sieve}
+\addcontentsline{toc}{subsubsection}{Primes Sieve}
+\begin{minted}{cpp}
+vector<int> sieve, primes;
+
+// ~O(N * lg(lg(N)))
+void primeSieve(int n) {
+  sieve.assign(n + 1, 0);
+  primes = {};
+  for (int i = 3; i * i <= n; i += 2)
+    if (!sieve[i])
+      for (int j = i * i; j <= n; j += 2 * i)
+        if (!sieve[j]) sieve[j] = i;
+  primes.push_back(2);
+  for (int i = 3; i < n; i++)
+    if (!sieve[i] && (i & 1)) primes.push_back(i);
+}
+\end{minted}
+
+\end{multicols*}
+\sectionfont{\bfseries\sffamily\centering\Huge}
+\vspace{1em}
+\section*{Extras}
+\markboth{EXTRAS}{}
+\addcontentsline{toc}{section}{Extras}
+\vspace{3em}
+\subsectionfont{\bfseries\sffamily\centering\LARGE}
+\vspace{0em}
+\subsection*{Maths}
+\addcontentsline{toc}{subsection}{Maths}
+\vspace{2em}
+\subsubsectionfont{\large\bfseries\sffamily\underline}
+\subsubsection*{Common Sums}
+\addcontentsline{toc}{subsubsection}{Common Sums}
+\vspace{1em}
+\sffamily
+\bgroup
+\def\arraystretch{3}
+{\normalsize
+  \begin{center}
+    \begin{tabular}{| >{\centering}m{5cm}| >{\centering}m{5cm}| >{\centering}m{5cm}|}
+      \hline
+      $\sum_{k = 0}^n k = \frac{n(n + 1)}{2}$
+       &
+      $\sum_{k = 0}^n k^2 = \frac{n(n + 1)(2n + 1)}{6}$
+       &
+      $\sum_{k = 0}^n k^3 = \frac{n^2(n + 1)^2}{4}$
+      \tabularnewline \hline
+      \multicolumn{2}{|c|}{$\sum_{k = 0}^n k^4 = \frac{n}{30} (n + 1)(2n + 1)(3n^2 + 3n - 1)$}
+       &
+      $\sum_{k = 0}^n a^k = \frac{1 - a^{n + 1}}{1 - a}$
+      \tabularnewline \hline
+      $\sum_{k = 0}^n ka^k = \frac{a[1 - (n + 1)a^n + na^{n + 1}]}{(1 - a)^2}$
+       &
+      \multicolumn{2}{c|}{
+      $\sum_{k = 0}^n k^2a^k = \frac{a[(1 + a) - (n + 1)^2a^n + (2n^2 + 2n - 1)a^{n + 1} - n^2a^{n + 2}]}{(1 - a)^3}$
+      }
+      \tabularnewline \hline
+      $\sum_{k = 0}^\infty a^k = \frac{1}{1 - a}, |a| < 1$
+       &
+      $\sum_{k = 0}^\infty ka^k = \frac{a}{(1 - a)^2}, |a| < 1$
+       &
+      $\sum_{k = 0}^\infty k^2a^k = \frac{a^2 + a}{(1 - a)^3}, |a| < 1$
+      \tabularnewline \hline
+      $\sum_{k = 0}^\infty \frac{1}{a^k} = \frac{a}{a - 1}, |a| > 1$
+       &
+      $\sum_{k = 0}^\infty \frac{k}{a^k} = \frac{a}{(a - 1)^2}, |a| > 1$
+       &
+      $\sum_{k = 0}^\infty \frac{k^2}{a^k} = \frac{a^2 + a}{(a - 1)^3}, |a| > 1$
+      \tabularnewline \hline
+      $\sum_{k = 0}^\infty \frac{a^k}{k!} = e^a$
+       &
+      $\sum_{k = 0}^n \binom{n}{k} = 2^n$
+       &
+      $\sum_{k = 0}^n \binom{k}{m} = \binom{n + 1}{m + 1}$
+      \tabularnewline \hline
+    \end{tabular}
+  \end{center}
+}
+\egroup
+\vspace{1em}
+\begin{multicols*}{2}
+\end{multicols*}
+\subsubsectionfont{\large\bfseries\sffamily\underline}
+\subsubsection*{Logarithm Rules}
+\addcontentsline{toc}{subsubsection}{Logarithm Rules}
+\vspace{1em}
+\sffamily
+\bgroup
+\def\arraystretch{2}
+{\normalsize
+\begin{center}
+  \begin{tabular}{| >{\centering}m{5cm}| >{\centering}m{5cm}| >{\centering}m{5cm}|}
+    \hline
+    $\log_b(b^k) = k$
+     &
+    $\log_b(1) = 0$
+     &
+    $\log_b(X) = \frac{\log_c(X)}{\log_c(b)}$
+    \tabularnewline \hline
+    $\log_b(X \cdotp Y) = \log_b(X) + \log_b(Y)$
+     &
+    $\log_b(\frac{X}{Y}) = \log_b(X) - \log_b(Y)$
+     &
+    $\log_b(X^k) = k \cdotp \log_b(X)$
+    \tabularnewline \hline
+  \end{tabular}
+\end{center}
+}
+\egroup
+\vspace{1em}
+\begin{multicols*}{2}
+
+\end{multicols*}
+\end{document}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{typedef} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{k+kt}{int} \PYG{n}{li}\PYG{p}{;}
+
+\PYG{n}{li} \PYG{n+nf}{binPow}\PYG{p}{(}\PYG{n}{li} \PYG{n}{a}\PYG{p}{,} \PYG{n}{li} \PYG{n}{p}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{li} \PYG{n}{ans} \PYG{o}{=} \PYG{l+m+mi}{1LL}\PYG{p}{;}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{p}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{p} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1LL}\PYG{p}{)} \PYG{n}{ans} \PYG{o}{*=} \PYG{n}{a}\PYG{p}{;}
+    \PYG{n}{a} \PYG{o}{*=} \PYG{n}{a}\PYG{p}{,} \PYG{n}{p} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1LL}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

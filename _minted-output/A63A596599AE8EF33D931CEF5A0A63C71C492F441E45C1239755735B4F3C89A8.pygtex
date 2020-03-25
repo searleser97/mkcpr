@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{testDivisibility}\PYG{p}{(}\PYG{n}{dividend}\PYG{p}{,} \PYG{n}{divisor}\PYG{p}{,} \PYG{n}{divisor\PYGZus{}criteria}\PYG{p}{):}
+    \PYG{n}{dividend} \PYG{o}{=} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{dividend}\PYG{p}{)}
+    \PYG{n}{addition} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{n}{dividendSize} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{dividend}\PYG{p}{)}
+    \PYG{n}{i} \PYG{o}{=} \PYG{n}{dividendSize} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}
+    \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{while} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{dividendSize}\PYG{p}{:}
+        \PYG{n}{addition} \PYG{o}{+=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{dividend}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])} \PYG{o}{*} \PYG{n}{divisor\PYGZus{}criteria}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+        \PYG{n}{i} \PYG{o}{\PYGZhy{}=} \PYG{l+m+mi}{1}
+        \PYG{n}{j} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{k}{return} \PYG{n}{addition} \PYG{o}{\PYGZpc{}} \PYG{n}{divisor} \PYG{o}{==} \PYG{l+m+mi}{0}
+\end{Verbatim}

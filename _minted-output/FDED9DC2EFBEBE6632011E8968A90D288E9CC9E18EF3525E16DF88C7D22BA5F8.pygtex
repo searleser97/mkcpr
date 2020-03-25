@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// \PYGZti{} O(E * log(V))}
+\PYG{n}{T} \PYG{n+nf}{prim}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{s}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Wedge}\PYG{o}{\PYGZgt{}} \PYG{n}{mst}\PYG{p}{;}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}} \PYG{n}{dist}\PYG{p}{(}\PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(),} \PYG{n}{inf}\PYG{p}{);}
+  \PYG{n}{priority\PYGZus{}queue}\PYG{o}{\PYGZlt{}}\PYG{n}{DistNode}\PYG{o}{\PYGZgt{}} \PYG{n}{q}\PYG{p}{;}
+  \PYG{n}{T} \PYG{n}{cost} \PYG{o}{=} \PYG{n}{dist}\PYG{p}{[}\PYG{n}{s}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{n}{q}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{s}\PYG{p}{\PYGZcb{});}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{q}\PYG{p}{.}\PYG{n}{size}\PYG{p}{())} \PYG{p}{\PYGZob{}}
+    \PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,} \PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{aux} \PYG{o}{=} \PYG{n}{q}\PYG{p}{.}\PYG{n}{top}\PYG{p}{();}
+    \PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{n}{aux}\PYG{p}{.}\PYG{n}{second}\PYG{p}{;}
+    \PYG{n}{q}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{dist}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}}\PYG{n}{aux}\PYG{p}{.}\PYG{n}{first}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+    \PYG{n}{vis}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{cost} \PYG{o}{+=} \PYG{n}{dist}\PYG{p}{[}\PYG{n}{u}\PYG{p}{];}
+    \PYG{n}{mst}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(\PYGZob{}}\PYG{n}{dist}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],} \PYG{p}{\PYGZob{}}\PYG{n}{p}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],} \PYG{n}{u}\PYG{p}{\PYGZcb{}\PYGZcb{});}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{\PYGZam{}}\PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+      \PYG{n}{T} \PYG{n}{w} \PYG{o}{=} \PYG{n}{weight}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{];}
+      \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{w} \PYG{o}{\PYGZlt{}} \PYG{n}{dist}\PYG{p}{[}\PYG{n}{v}\PYG{p}{])}
+        \PYG{n}{q}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(\PYGZob{}}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{dist}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{n}{w}\PYG{p}{),} \PYG{n}{v}\PYG{p}{\PYGZcb{});}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{n}{msts}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}
+      \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Wedge}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{mst}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{()} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{mst}\PYG{p}{.}\PYG{n}{end}\PYG{p}{()));}
+  \PYG{k}{return} \PYG{n}{cost}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{c+c1}{// O(lg(N))}
+  \PYG{k+kt}{bool} \PYG{n+nf}{areConnected}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{v}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{t}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{root}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{t}\PYG{p}{)} \PYG{o}{==} \PYG{n}{root}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{t}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

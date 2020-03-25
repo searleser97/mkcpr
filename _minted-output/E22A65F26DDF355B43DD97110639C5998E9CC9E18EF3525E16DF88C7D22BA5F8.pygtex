@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(N)}
+\PYG{k+kt}{bool} \PYG{n+nf}{isBipartite}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{color}\PYG{p}{(}\PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(),} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{);}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{s} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{s} \PYG{o}{\PYGZlt{}} \PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{s}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{color}\PYG{p}{[}\PYG{n}{s}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+    \PYG{n}{color}\PYG{p}{[}\PYG{n}{s}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{queue}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{q}\PYG{p}{;}
+    \PYG{n}{q}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{s}\PYG{p}{);}
+    \PYG{k}{while} \PYG{p}{(}\PYG{o}{!}\PYG{n}{q}\PYG{p}{.}\PYG{n}{empty}\PYG{p}{())} \PYG{p}{\PYGZob{}}
+      \PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{n}{q}\PYG{p}{.}\PYG{n}{front}\PYG{p}{();}
+      \PYG{n}{q}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}
+      \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{\PYGZam{}}\PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{color}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}\PYG{p}{)}
+          \PYG{n}{q}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{v}\PYG{p}{),} \PYG{n}{color}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{o}{!}\PYG{n}{color}\PYG{p}{[}\PYG{n}{u}\PYG{p}{];}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{color}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{==} \PYG{n}{color}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

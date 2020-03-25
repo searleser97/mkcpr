@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(1)}
+\PYG{k+kt}{int} \PYG{n+nf}{lca}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{l} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{first}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],} \PYG{n}{first}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]);}
+  \PYG{k+kt}{int} \PYG{n}{r} \PYG{o}{=} \PYG{n}{max}\PYG{p}{(}\PYG{n}{first}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],} \PYG{n}{first}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]);}
+  \PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{log2}\PYG{p}{(}\PYG{n}{r} \PYG{o}{\PYGZhy{}} \PYG{n}{l} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+  \PYG{k}{return} \PYG{n}{F}\PYG{p}{(}\PYG{n}{st}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{l}\PYG{p}{],} \PYG{n}{st}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{r} \PYG{o}{+} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{i}\PYG{p}{)]).}\PYG{n}{second}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// tv = top value from stack}
+\PYG{c+c1}{// sccs = strongly connected components}
+\PYG{c+c1}{// scc = strongly connected component}
+\PYG{c+c1}{// disc = discovery time, low = low time}
+\PYG{c+c1}{// s = stack, top = top index of the stack}
+\end{Verbatim}

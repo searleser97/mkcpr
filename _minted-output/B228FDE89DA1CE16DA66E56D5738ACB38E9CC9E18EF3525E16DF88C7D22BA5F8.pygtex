@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{n}{Matrix}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{m}\PYG{p}{.}\PYG{n}{assign}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{n}\PYG{p}{));}
+    \PYG{k}{while} \PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)} \PYG{n}{m}\PYG{p}{[}\PYG{n}{n}\PYG{p}{][}\PYG{n}{n}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

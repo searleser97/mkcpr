@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{sieve}\PYG{p}{,} \PYG{n}{primes}\PYG{p}{;}
+
+\PYG{c+c1}{// \PYGZti{}O(N * lg(lg(N)))}
+\PYG{k+kt}{void} \PYG{n+nf}{primeSieve}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{sieve}\PYG{p}{.}\PYG{n}{assign}\PYG{p}{(}\PYG{n}{n} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+  \PYG{n}{primes} \PYG{o}{=} \PYG{p}{\PYGZob{}\PYGZcb{};}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{i} \PYG{o}{*} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i} \PYG{o}{+=} \PYG{l+m+mi}{2}\PYG{p}{)}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{sieve}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+      \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{n}{i} \PYG{o}{*} \PYG{n}{i}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{j} \PYG{o}{+=} \PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{i}\PYG{p}{)}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{sieve}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{n}{sieve}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
+  \PYG{n}{primes}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{);}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{sieve}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{))} \PYG{n}{primes}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

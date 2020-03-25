@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}GCD.cpp\PYGZdq{}}
+
+\PYG{k+kt}{int} \PYG{n+nf}{lcm}\PYG{p}{(}\PYG{n}{li} \PYG{n}{a}\PYG{p}{,} \PYG{n}{li} \PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{d} \PYG{o}{=} \PYG{n}{gcd}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{);}
+  \PYG{k}{return} \PYG{n}{d} \PYG{o}{?} \PYG{n}{a} \PYG{o}{/} \PYG{n}{d} \PYG{o}{*} \PYG{n+nl}{b} \PYG{p}{:} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

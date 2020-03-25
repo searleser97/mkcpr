@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}../Number Theory/Modular Multiplicative Inverse.cpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}Factorials Modulo M.cpp\PYGZdq{}}
+
+\PYG{k}{typedef} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{k+kt}{int} \PYG{n}{li}\PYG{p}{;}
+
+\PYG{c+c1}{// O(lg(p))}
+\PYG{n}{li} \PYG{n+nf}{nCk}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{k}\PYG{p}{,} \PYG{n}{li} \PYG{n}{p}\PYG{p}{,} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{li}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}}\PYG{n}{fact}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{n}{fact}\PYG{p}{[}\PYG{n}{n}\PYG{p}{]} \PYG{o}{*} \PYG{n}{modInv}\PYG{p}{(}\PYG{n}{fact}\PYG{p}{[}\PYG{n}{k}\PYG{p}{],} \PYG{n}{p}\PYG{p}{)} \PYG{o}{\PYGZpc{}} \PYG{n}{p} \PYG{o}{*}
+         \PYG{n}{modInv}\PYG{p}{(}\PYG{n}{fact}\PYG{p}{[}\PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{n}{k}\PYG{p}{],} \PYG{n}{p}\PYG{p}{)} \PYG{o}{\PYGZpc{}} \PYG{n}{p}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

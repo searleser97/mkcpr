@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// n = number, m = modulo}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}Extended Euclidean Algorithm.cpp\PYGZdq{}}
+
+\PYG{c+c1}{// O(lg(N))}
+\PYG{n}{li} \PYG{n+nf}{modInv}\PYG{p}{(}\PYG{n}{li} \PYG{n}{n}\PYG{p}{,} \PYG{n}{li} \PYG{n}{m}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{li} \PYG{n}{g}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{;}
+  \PYG{n}{tie}\PYG{p}{(}\PYG{n}{g}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)} \PYG{o}{=} \PYG{n}{extendedGCD}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{m}\PYG{p}{);}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{g} \PYG{o}{!=} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{throw} \PYG{l+s}{\PYGZdq{}No solution\PYGZdq{}}\PYG{p}{;}
+  \PYG{k}{return} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZpc{}} \PYG{n}{m} \PYG{o}{+} \PYG{n}{m}\PYG{p}{)} \PYG{o}{\PYGZpc{}} \PYG{n}{m}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

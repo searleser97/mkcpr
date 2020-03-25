@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{c+c1}{// O(N * M)}
+  \PYG{n}{Matrix} \PYG{k}{operator}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{k}{const} \PYG{n}{Matrix}\PYG{o}{\PYGZam{}} \PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{Matrix} \PYG{n}{ans}\PYG{p}{(}\PYG{n}{rows}\PYG{p}{,} \PYG{n}{cols}\PYG{p}{);}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{rows}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+      \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{m}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
+        \PYG{n}{ans}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{m}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{b}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{];}
+    \PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n+nf}{dfsAPB}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{p}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{ch} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{nup} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{disc}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{o}{++}\PYG{n}{Time}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{\PYGZam{}}\PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{v} \PYG{o}{==} \PYG{n}{p} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{nup}\PYG{o}{++}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{disc}\PYG{p}{[}\PYG{n}{v}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+      \PYG{n}{ch}\PYG{o}{++}\PYG{p}{,} \PYG{n}{dfsAPB}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{u}\PYG{p}{);}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{disc}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{\PYGZlt{}=} \PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{])} \PYG{n}{isAp}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{o}{++}\PYG{p}{;}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{disc}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{])} \PYG{n}{br}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(\PYGZob{}}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{\PYGZcb{});}
+      \PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],} \PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]);}
+    \PYG{p}{\PYGZcb{}} \PYG{k}{else}
+      \PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],} \PYG{n}{disc}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]);}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{ch}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

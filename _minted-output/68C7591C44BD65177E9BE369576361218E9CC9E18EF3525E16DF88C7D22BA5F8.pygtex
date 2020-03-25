@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{typedef} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{k+kt}{int} \PYG{n}{li}\PYG{p}{;}
+
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{li}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{nCk}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{maxN}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{li}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{c}\PYG{p}{(}\PYG{o}{++}\PYG{n}{maxN}\PYG{p}{,} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{li}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{maxN}\PYG{p}{));}
+  \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{n} \PYG{o}{\PYGZlt{}} \PYG{n}{maxN}\PYG{p}{;} \PYG{n}{n}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{c}\PYG{p}{[}\PYG{n}{n}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{c}\PYG{p}{[}\PYG{n}{n}\PYG{p}{][}\PYG{n}{n}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{k}\PYG{o}{++}\PYG{p}{)}
+      \PYG{n}{c}\PYG{p}{[}\PYG{n}{n}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]} \PYG{o}{=} \PYG{n}{c}\PYG{p}{[}\PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{k} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{n}{c}\PYG{p}{[}\PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{k}\PYG{p}{];}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{c}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

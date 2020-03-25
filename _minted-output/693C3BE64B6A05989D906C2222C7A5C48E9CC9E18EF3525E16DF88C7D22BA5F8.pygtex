@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(N * lg(N))}
+\PYG{k+kt}{void} \PYG{n+nf}{preprocess}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{n}{tour}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+  \PYG{n}{first}\PYG{p}{.}\PYG{n}{assign}\PYG{p}{(}\PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(),} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{);}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{roots} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{};}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k}{auto} \PYG{o}{\PYGZam{}}\PYG{n+nl}{root} \PYG{p}{:} \PYG{n}{roots}\PYG{p}{)} \PYG{n}{eulerTour}\PYG{p}{(}\PYG{n}{root}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+  \PYG{n}{build}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

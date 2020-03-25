@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{c+c1}{// O(N\PYGZca{}3)}
+  \PYG{n}{Matrix} \PYG{k}{operator}\PYG{o}{*}\PYG{p}{(}\PYG{k}{const} \PYG{n}{Matrix}\PYG{o}{\PYGZam{}} \PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{cols} \PYG{o}{!=} \PYG{n}{b}\PYG{p}{.}\PYG{n}{rows}\PYG{p}{)} \PYG{k}{return} \PYG{n}{Matrix}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{n}{Matrix} \PYG{n+nf}{ans}\PYG{p}{(}\PYG{n}{rows}\PYG{p}{,} \PYG{n}{b}\PYG{p}{.}\PYG{n}{cols}\PYG{p}{);}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{rows}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+      \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{b}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}} \PYG{n}{b}\PYG{p}{.}\PYG{n}{rows}\PYG{p}{;} \PYG{n}{k}\PYG{o}{++}\PYG{p}{)}
+          \PYG{n}{ans}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{m}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]} \PYG{o}{*} \PYG{n}{b}\PYG{p}{[}\PYG{n}{k}\PYG{p}{][}\PYG{n}{j}\PYG{p}{];}
+    \PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

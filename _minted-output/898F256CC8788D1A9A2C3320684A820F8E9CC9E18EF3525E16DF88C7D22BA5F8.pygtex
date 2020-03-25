@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(V + E * log(V))}
+\PYG{n}{T} \PYG{n+nf}{prim}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{n}{T} \PYG{n}{cost} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,} \PYG{n}{T}\PYG{o}{\PYGZgt{}} \PYG{n}{q}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])} \PYG{n}{cost} \PYG{o}{+=} \PYG{n}{prim}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+  \PYG{k}{return} \PYG{n}{cost}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

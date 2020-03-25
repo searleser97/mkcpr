@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// APB = articulation points and bridges}
+\PYG{c+c1}{// Ap = Articulation Point}
+\PYG{c+c1}{// br = bridges, p = parent}
+\PYG{c+c1}{// disc = discovery time}
+\PYG{c+c1}{// low = lowTime, ch = children}
+\PYG{c+c1}{// nup = number of edges from u to p}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{n}{Matrix}\PYG{o}{\PYGZam{}} \PYG{k}{operator}\PYG{o}{\PYGZhy{}=}\PYG{p}{(}\PYG{k}{const} \PYG{n}{Matrix}\PYG{o}{\PYGZam{}} \PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{o}{*}\PYG{k}{this} \PYG{o}{=} \PYG{o}{*}\PYG{k}{this} \PYG{o}{\PYGZhy{}} \PYG{n}{b}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

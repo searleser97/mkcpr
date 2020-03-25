@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// N = number of nodes, Wedge = Weighted Edge}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}Data Structures/Union Find.cpp\PYGZdq{}}
+\PYG{k}{typedef} \PYG{k+kt}{int} \PYG{n}{T}\PYG{p}{;}
+\PYG{k}{typedef} \PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,} \PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{Edge}\PYG{p}{;}
+\PYG{k}{typedef} \PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{p}{,} \PYG{n}{Edge}\PYG{o}{\PYGZgt{}} \PYG{n}{Wedge}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Wedge}\PYG{o}{\PYGZgt{}} \PYG{n}{Wedges}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Wedge}\PYG{o}{\PYGZgt{}} \PYG{n}{mst}\PYG{p}{;}
+\PYG{n}{UnionFind} \PYG{n+nf}{uf}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+\end{Verbatim}

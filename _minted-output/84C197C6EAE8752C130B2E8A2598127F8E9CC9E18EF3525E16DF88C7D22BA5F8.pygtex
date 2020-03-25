@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{eulerTour}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{p}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{h}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{first}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{tour}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}
+  \PYG{n}{tour}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(\PYGZob{}}\PYG{n}{h}\PYG{p}{,} \PYG{n}{u}\PYG{p}{\PYGZcb{});}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{v} \PYG{o}{!=} \PYG{n}{p}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{eulerTour}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{u}\PYG{p}{,} \PYG{n}{h} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{);}
+      \PYG{n}{tour}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(\PYGZob{}}\PYG{n}{h}\PYG{p}{,} \PYG{n}{u}\PYG{p}{\PYGZcb{});}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{dfsSCCS}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{disc}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{k}{return}\PYG{p}{;}
+  \PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{disc}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{o}{++}\PYG{n}{Time}\PYG{p}{;}
+  \PYG{n}{s}\PYG{p}{[}\PYG{o}{++}\PYG{n}{top}\PYG{p}{]} \PYG{o}{=} \PYG{n}{u}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{\PYGZam{}}\PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])}
+    \PYG{n}{dfsSCCS}\PYG{p}{(}\PYG{n}{v}\PYG{p}{),} \PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],} \PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]);}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{disc}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{==} \PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{scc}\PYG{p}{;}
+    \PYG{k}{while} \PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{k+kt}{int} \PYG{n}{tv} \PYG{o}{=} \PYG{n}{s}\PYG{p}{[}\PYG{n}{top}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{];}
+      \PYG{n}{scc}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{tv}\PYG{p}{);}
+      \PYG{n}{low}\PYG{p}{[}\PYG{n}{tv}\PYG{p}{]} \PYG{o}{=} \PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{tv} \PYG{o}{==} \PYG{n}{u}\PYG{p}{)} \PYG{k}{break}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{sccs}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{scc}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

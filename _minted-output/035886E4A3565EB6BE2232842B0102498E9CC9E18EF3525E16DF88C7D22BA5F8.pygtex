@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// pf = primeFactors, divs = divisors}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}../Primes/Prime Factorization Pollard Rho.cpp\PYGZdq{}}
+
+\PYG{k}{typedef} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{li}\PYG{o}{\PYGZgt{}} \PYG{n}{V}\PYG{p}{;}
+
+\PYG{k+kt}{void} \PYG{n+nf}{divisors}\PYG{p}{(}\PYG{n}{Map} \PYG{o}{\PYGZam{}}\PYG{n}{pf}\PYG{p}{,} \PYG{n}{V} \PYG{o}{\PYGZam{}}\PYG{n}{divs}\PYG{p}{,} \PYG{n}{li} \PYG{n}{ans}\PYG{p}{,} \PYG{n}{li} \PYG{n}{p}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{auto} \PYG{n}{next} \PYG{o}{=} \PYG{o}{++}\PYG{n}{pf}\PYG{p}{.}\PYG{n}{find}\PYG{p}{(}\PYG{n}{p}\PYG{p}{);}
+  \PYG{k+kt}{int} \PYG{n}{power} \PYG{o}{=} \PYG{n}{pf}\PYG{p}{[}\PYG{n}{p}\PYG{p}{];}
+  \PYG{k}{for} \PYG{p}{(}\PYG{n}{li} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{k} \PYG{o}{\PYGZlt{}=} \PYG{n}{power}\PYG{p}{;} \PYG{n}{k}\PYG{o}{++}\PYG{p}{,} \PYG{n}{ans} \PYG{o}{*=} \PYG{n}{p}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{next} \PYG{o}{==} \PYG{n}{pf}\PYG{p}{.}\PYG{n}{end}\PYG{p}{())} \PYG{n}{divs}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{ans}\PYG{p}{);}
+    \PYG{k}{else} \PYG{n}{divisors}\PYG{p}{(}\PYG{n}{pf}\PYG{p}{,} \PYG{n}{divs}\PYG{p}{,} \PYG{n}{ans}\PYG{p}{,} \PYG{n}{next}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{first}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

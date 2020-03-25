@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}../Primes/Prime Factorization Pollard Rho.cpp\PYGZdq{}}
+\PYG{c+c1}{// \PYGZsh{}include \PYGZdq{}../Primes/Prime Factorization.cpp\PYGZdq{}}
+
+\PYG{c+c1}{// counts the number of integers (Xi) between 1 and n}
+\PYG{c+c1}{// which are coprime (gcd(Xi, n) = 1) to n}
+\PYG{n}{li} \PYG{n+nf}{phi}\PYG{p}{(}\PYG{n}{li} \PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{Map} \PYG{n}{pf} \PYG{o}{=} \PYG{n}{getPrimeFactors}\PYG{p}{(}\PYG{n}{n}\PYG{p}{);}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{pf}\PYG{p}{.}\PYG{n}{count}\PYG{p}{(}\PYG{n}{n}\PYG{p}{))} \PYG{k}{return} \PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;}  \PYG{c+c1}{// if n is prime}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k}{auto} \PYG{o}{\PYGZam{}}\PYG{n+nl}{p} \PYG{p}{:} \PYG{n}{pf}\PYG{p}{)} \PYG{n}{n} \PYG{o}{\PYGZhy{}=} \PYG{n}{n} \PYG{o}{/} \PYG{n}{p}\PYG{p}{.}\PYG{n}{first}\PYG{p}{;}
+  \PYG{k}{return} \PYG{n}{n}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

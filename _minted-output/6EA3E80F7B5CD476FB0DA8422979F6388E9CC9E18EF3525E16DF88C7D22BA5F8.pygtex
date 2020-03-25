@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(N)}
+\PYG{k+kt}{int} \PYG{n+nf}{dfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{size} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{maxSubtree} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{\PYGZam{}}\PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+    \PYG{n}{depth}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{n}{depth}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{subtree} \PYG{o}{=} \PYG{n}{dfs}\PYG{p}{(}\PYG{n}{v}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{subtree} \PYG{o}{\PYGZgt{}} \PYG{n}{maxSubtree}\PYG{p}{)}
+      \PYG{n}{heavy}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{v}\PYG{p}{,} \PYG{n}{maxSubtree} \PYG{o}{=} \PYG{n}{subtree}\PYG{p}{;}
+    \PYG{n}{size} \PYG{o}{+=} \PYG{n}{subtree}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{size}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

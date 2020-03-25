@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{n}{Matrix}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{c}\PYG{p}{)} \PYG{o}{:} \PYG{n}{rows}\PYG{p}{(}\PYG{n}{r}\PYG{p}{),} \PYG{n}{cols}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{m}\PYG{p}{.}\PYG{n}{assign}\PYG{p}{(}\PYG{n}{r}\PYG{p}{,} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{c}\PYG{p}{));}
+  \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

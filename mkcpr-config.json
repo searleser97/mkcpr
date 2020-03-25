@@ -1,0 +1,8 @@
+{
+  "codeFolder" : "/home/san/Projects/mkcpr/CodeFolderExample",
+  "templatePath" : "/home/san/Projects/mkcpr/template.tex",
+  "outputFilePath" : "/home/san/Projects/mkcpr/output.tex",
+  "excluded" : [".vscode", "__pycache__"],
+  "columns" : 2,
+  "templatePlaceHolder" : "CODE HERE"
+}

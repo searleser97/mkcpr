@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{li} \PYG{n+nf}{getRandomDivisor}\PYG{p}{(}\PYG{n}{li} \PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{if} \PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{n} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{return} \PYG{l+m+mi}{2}\PYG{p}{;}
+  \PYG{n}{li} \PYG{n}{c} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n}{rand}\PYG{p}{()} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{),} \PYG{n}{a} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{b} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{d} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{k}{auto} \PYG{n}{f} \PYG{o}{=} \PYG{p}{[}\PYG{o}{\PYGZam{}}\PYG{p}{](}\PYG{n}{li} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{p}{(}\PYG{n}{multiply}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{n}\PYG{p}{)} \PYG{o}{+} \PYG{n}{c}\PYG{p}{)} \PYG{o}{\PYGZpc{}} \PYG{n}{n}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{};}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{d} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{n}{a} \PYG{o}{=} \PYG{n}{f}\PYG{p}{(}\PYG{n}{a}\PYG{p}{),} \PYG{n}{b} \PYG{o}{=} \PYG{n}{f}\PYG{p}{(}\PYG{n}{f}\PYG{p}{(}\PYG{n}{b}\PYG{p}{)),} \PYG{n}{d} \PYG{o}{=} \PYG{n}{gcd}\PYG{p}{(}\PYG{n}{\PYGZus{}abs}\PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZhy{}} \PYG{n}{b}\PYG{p}{),} \PYG{n}{n}\PYG{p}{);}
+  \PYG{k}{return} \PYG{n}{d}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

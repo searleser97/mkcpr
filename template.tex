@@ -1,0 +1,72 @@
+% run the command ' lualatex -shell-escape Reference.tex ' twice in the terminal to visualize table of contents
+\documentclass[twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{minted}
+\usepackage{python}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{needspace}
+\usepackage{sectsty}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{afterpage}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[inline]{enumitem}
+
+\geometry{letterpaper, portrait, left=0.5cm, right=0.5cm, top=1.8cm, bottom=1cm}
+
+\sectionfont{\Huge\bfseries\sffamily}
+
+\setminted{
+    style=tango,
+    breaklines=true
+}
+
+\setlength{\headsep}{0.5cm}
+\setlength{\columnsep}{0.5cm}
+\setlength{\columnseprule}{0.01cm}
+\renewcommand{\columnseprulecolor}{\color{gray}}
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LO,RE]{\textsf{First, solve the problem. Then, write the code.}}
+\fancyhead[LE,RO]{\textsf{\leftmark}}
+\fancyfoot[LE,RO]{\textbf{\textsf{\thepage}}}
+
+\renewcommand{\headrulewidth}{0.01cm}
+\renewcommand{\footrulewidth}{0.01cm}
+
+\setlength{\parindent}{0em}
+% column space
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+% upper and lower padding
+\renewcommand{\arraystretch}{1.5} % Default value: 1
+
+\definecolor{prussianblue}{rgb}{0.0, 0.19, 0.33}
+\definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
+\definecolor{lapislazuli}{rgb}{0.15, 0.38, 0.61}
+\definecolor{mediumelectricblue}{rgb}{0.01, 0.31, 0.59}
+\definecolor{smalt(darkpowderblue)}{rgb}{0.0, 0.2, 0.6}
+\definecolor{yaleblue}{rgb}{0.06, 0.3, 0.57}
+\definecolor{skobeloff}{rgb}{0.0, 0.48, 0.45}
+\definecolor{pinegreen}{rgb}{0.0, 0.47, 0.44}
+
+\begin{document}
+\fontfamily{lmss}
+\selectfont
+\begin{multicols*}{2}
+	\tableofcontents
+	\newpage
+	CODE HERE
+\end{multicols*}
+\end{document}

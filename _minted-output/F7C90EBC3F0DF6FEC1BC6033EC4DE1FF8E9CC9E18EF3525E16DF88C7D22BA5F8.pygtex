@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// Iterative version}
+\PYG{n}{li} \PYG{n+nf}{gcdI}\PYG{p}{(}\PYG{n}{li} \PYG{n}{a}\PYG{p}{,} \PYG{n}{li} \PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{b}\PYG{p}{)} \PYG{n}{a} \PYG{o}{\PYGZpc{}=} \PYG{n}{b}\PYG{p}{,} \PYG{n}{swap}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{);}
+  \PYG{k}{return} \PYG{n}{a}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

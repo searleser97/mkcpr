@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n}{Time}\PYG{p}{,} \PYG{n}{top}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{adj}\PYG{p}{,} \PYG{n}{sccs}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{disc}\PYG{p}{,} \PYG{n}{low}\PYG{p}{,} \PYG{n}{s}\PYG{p}{;}
+
+\PYG{k+kt}{void} \PYG{n+nf}{init}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{N}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{n}{adj}\PYG{p}{.}\PYG{n}{assign}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{());} \PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{addEdge}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{v}\PYG{p}{);} \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

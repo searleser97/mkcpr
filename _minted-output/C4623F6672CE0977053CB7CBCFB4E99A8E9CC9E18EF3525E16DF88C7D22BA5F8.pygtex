@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(N)}
+\PYG{k+kt}{void} \PYG{n+nf}{initHeavyLight}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{n}{dfs}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{pos} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0} \PYG{o}{||} \PYG{n}{heavy}\PYG{p}{[}\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]]} \PYG{o}{!=} \PYG{n}{i}\PYG{p}{)}
+      \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;} \PYG{o}{\PYGZti{}}\PYG{n}{j}\PYG{p}{;} \PYG{n}{j} \PYG{o}{=} \PYG{n}{heavy}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+        \PYG{n}{st}\PYG{p}{.}\PYG{n}{setValAt}\PYG{p}{(}\PYG{n}{vals}\PYG{p}{[}\PYG{n}{j}\PYG{p}{],} \PYG{n}{stPos}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{pos}\PYG{o}{++}\PYG{p}{);}
+        \PYG{n}{root}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+  \PYG{n}{st}\PYG{p}{.}\PYG{n}{build}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

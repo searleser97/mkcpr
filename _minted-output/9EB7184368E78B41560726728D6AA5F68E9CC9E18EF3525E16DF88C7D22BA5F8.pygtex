@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{c+c1}{// O(1)}
+  \PYG{k+kt}{void} \PYG{n+nf}{join}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{v}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{newTime} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{Ru} \PYG{o}{=} \PYG{n}{root}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{Time}\PYG{p}{),} \PYG{n}{Rv} \PYG{o}{=} \PYG{n}{root}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{Time}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{newTime}\PYG{p}{)} \PYG{n}{Time}\PYG{o}{++}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{Ru} \PYG{o}{==} \PYG{n}{Rv}\PYG{p}{)} \PYG{k}{return}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{size}\PYG{p}{[}\PYG{n}{Ru}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{n}{size}\PYG{p}{[}\PYG{n}{Rv}\PYG{p}{])} \PYG{n}{swap}\PYG{p}{(}\PYG{n}{Ru}\PYG{p}{,} \PYG{n}{Rv}\PYG{p}{);}
+    \PYG{n}{jTime}\PYG{p}{[}\PYG{n}{Ru}\PYG{p}{]} \PYG{o}{=} \PYG{n}{Time}\PYG{p}{;}
+    \PYG{n}{dad}\PYG{p}{[}\PYG{n}{Ru}\PYG{p}{]} \PYG{o}{=} \PYG{n}{Rv}\PYG{p}{;}
+    \PYG{n}{size}\PYG{p}{[}\PYG{n}{Rv}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{size}\PYG{p}{[}\PYG{n}{Ru}\PYG{p}{];}
+  \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

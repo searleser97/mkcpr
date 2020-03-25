@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{n}{Matrix}\PYG{p}{(}\PYG{k}{const} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}\PYGZgt{}\PYGZam{}} \PYG{n}{b}\PYG{p}{)}
+      \PYG{o}{:} \PYG{n}{rows}\PYG{p}{(}\PYG{n}{b}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()),} \PYG{n}{cols}\PYG{p}{(}\PYG{n}{b}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{].}\PYG{n}{size}\PYG{p}{()),} \PYG{n}{m}\PYG{p}{(}\PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}\PYGZcb{}}
+\end{Verbatim}

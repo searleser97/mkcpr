@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(E)}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}} \PYG{n}{bfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{s}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{dist}\PYG{p}{(}\PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(),} \PYG{n}{inf}\PYG{p}{);}
+  \PYG{n}{dist}\PYG{p}{[}\PYG{n}{s}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{n}{deque}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{q}\PYG{p}{;}
+  \PYG{n}{q}\PYG{p}{.}\PYG{n}{push\PYGZus{}front}\PYG{p}{(}\PYG{n}{s}\PYG{p}{);}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{q}\PYG{p}{.}\PYG{n}{size}\PYG{p}{())} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{n}{q}\PYG{p}{.}\PYG{n}{front}\PYG{p}{();} \PYG{n}{q}\PYG{p}{.}\PYG{n}{pop\PYGZus{}front}\PYG{p}{();}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k}{auto}\PYG{o}{\PYGZam{}} \PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+      \PYG{n}{T} \PYG{n}{d} \PYG{o}{=} \PYG{n}{dist}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{+} \PYG{n}{weight}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{];}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{d} \PYG{o}{\PYGZlt{}} \PYG{n}{dist}\PYG{p}{[}\PYG{n}{v}\PYG{p}{])}
+        \PYG{n}{weight}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{]} \PYG{o}{?} \PYG{n}{q}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}
+                     \PYG{o}{:} \PYG{n}{q}\PYG{p}{.}\PYG{n}{push\PYGZus{}front}\PYG{p}{(}\PYG{n}{v}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{dist}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

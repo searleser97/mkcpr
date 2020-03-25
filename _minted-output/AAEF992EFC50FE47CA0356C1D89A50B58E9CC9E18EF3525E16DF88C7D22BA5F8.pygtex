@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(E * V\PYGZca{}2)}
+\PYG{n}{T} \PYG{n+nf}{mbm}\PYG{p}{()} \PYG{p}{\PYGZob{}} \PYG{k}{return} \PYG{n}{maxFlowMinCut}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);} \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

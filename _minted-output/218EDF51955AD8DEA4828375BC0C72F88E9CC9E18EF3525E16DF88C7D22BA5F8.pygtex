@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{init}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{N}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{mst}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+  \PYG{n}{Wedges}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+  \PYG{n}{uf} \PYG{o}{=} \PYG{n}{UnionFind}\PYG{p}{(}\PYG{n}{N}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

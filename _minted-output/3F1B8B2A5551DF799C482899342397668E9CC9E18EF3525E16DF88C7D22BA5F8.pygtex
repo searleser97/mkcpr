@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n+nf}{bfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{dist}\PYG{p}{(}\PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(),} \PYG{n}{inf}\PYG{p}{);}
+  \PYG{n}{queue}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{q}\PYG{p}{;}
+  \PYG{n}{q}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{u}\PYG{p}{),} \PYG{n}{dist}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{q}\PYG{p}{.}\PYG{n}{size}\PYG{p}{())} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{n}{q}\PYG{p}{.}\PYG{n}{front}\PYG{p}{();}
+    \PYG{n}{q}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int}\PYG{o}{\PYGZam{}} \PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{dist}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{==} \PYG{n}{inf}\PYG{p}{)}
+        \PYG{n}{q}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{v}\PYG{p}{),} \PYG{n}{dist}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{n}{dist}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k+kt}{int} \PYG{n}{node}\PYG{p}{,} \PYG{n}{maxx} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{inf}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{u} \PYG{o}{\PYGZlt{}} \PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{u}\PYG{o}{++}\PYG{p}{)}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{dist}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{n}{maxx}\PYG{p}{)} \PYG{n}{maxx} \PYG{o}{=} \PYG{n}{dist}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],} \PYG{n}{node} \PYG{o}{=} \PYG{n}{u}\PYG{p}{;}
+  \PYG{k}{return} \PYG{n}{node}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

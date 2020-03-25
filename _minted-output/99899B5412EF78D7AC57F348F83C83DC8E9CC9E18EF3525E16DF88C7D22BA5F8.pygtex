@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template} \PYG{o}{\PYGZlt{}}\PYG{k}{class} \PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{k}{struct} \PYG{n}{Matrix} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{rows}\PYG{p}{,} \PYG{n}{cols}\PYG{p}{;}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{m}\PYG{p}{;}
+\end{Verbatim}

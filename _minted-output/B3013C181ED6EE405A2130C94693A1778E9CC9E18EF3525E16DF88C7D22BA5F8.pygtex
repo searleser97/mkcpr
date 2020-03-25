@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{typedef} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{k+kt}{int} \PYG{n}{li}\PYG{p}{;}
+\PYG{c+c1}{// if li == \PYGZus{}\PYGZus{}int128\PYGZus{}t: use map\PYGZlt{}li, int\PYGZgt{} Map;}
+\PYG{k}{typedef} \PYG{n}{unordered\PYGZus{}map}\PYG{o}{\PYGZlt{}}\PYG{n}{li}\PYG{p}{,} \PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{Map}\PYG{p}{;}
+
+\PYG{c+c1}{// \PYGZti{}O(sqrt(N) * lg(N))}
+\PYG{n}{Map} \PYG{n+nf}{getPrimeFactors}\PYG{p}{(}\PYG{n}{li} \PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{Map} \PYG{n}{pf}\PYG{p}{;}
+  \PYG{k}{while} \PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{n} \PYG{o}{\PYGZam{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{pf}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{o}{++}\PYG{p}{,} \PYG{n}{n} \PYG{o}{\PYGZgt{}\PYGZgt{}=} \PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{n}{li} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{i} \PYG{o}{*} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i} \PYG{o}{+=} \PYG{l+m+mi}{2}\PYG{p}{)}
+    \PYG{k}{while} \PYG{p}{(}\PYG{o}{!}\PYG{p}{(}\PYG{n}{n} \PYG{o}{\PYGZpc{}} \PYG{n}{i}\PYG{p}{))} \PYG{n}{pf}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{++}\PYG{p}{,} \PYG{n}{n} \PYG{o}{/=} \PYG{n}{i}\PYG{p}{;}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{n} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{pf}\PYG{p}{[}\PYG{n}{n}\PYG{p}{]}\PYG{o}{++}\PYG{p}{;}
+  \PYG{k}{return} \PYG{n}{pf}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{addEdge}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{v}\PYG{p}{,} \PYG{n}{T} \PYG{n}{w}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{isDirected} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{d}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{n}{w}\PYG{p}{;}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{isDirected}\PYG{p}{)} \PYG{k}{return}\PYG{p}{;}
+  \PYG{n}{d}\PYG{p}{[}\PYG{n}{v}\PYG{p}{][}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{w}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(V!)}
+\PYG{k+kt}{void} \PYG{n+nf}{dfs}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{indeg0}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{n}{indeg0}\PYG{p}{.}\PYG{n}{front}\PYG{p}{();}
+    \PYG{n}{indeg0}\PYG{p}{.}\PYG{n}{pop\PYGZus{}front}\PYG{p}{();}
+    \PYG{n}{path}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{u}\PYG{p}{);}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k}{auto} \PYG{o}{\PYGZam{}}\PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])}
+      \PYG{k}{if} \PYG{p}{(}\PYG{o}{!\PYGZhy{}\PYGZhy{}}\PYG{n}{indegree}\PYG{p}{[}\PYG{n}{v}\PYG{p}{])} \PYG{n}{indeg0}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{v}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{indeg0}\PYG{p}{.}\PYG{n}{size}\PYG{p}{())} \PYG{n}{toposorts}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{path}\PYG{p}{);}
+    \PYG{n}{dfs}\PYG{p}{();}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{v} \PYG{o}{=} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{].}\PYG{n}{size}\PYG{p}{()} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{o}{\PYGZti{}}\PYG{n}{v}\PYG{p}{;} \PYG{n}{v}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{indegree}\PYG{p}{[}\PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{]]}\PYG{o}{++}\PYG{p}{;}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{indeg0}\PYG{p}{.}\PYG{n}{back}\PYG{p}{()} \PYG{o}{==} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{])}
+        \PYG{n}{indeg0}\PYG{p}{.}\PYG{n}{pop\PYGZus{}back}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{indeg0}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{u}\PYG{p}{);}
+    \PYG{n}{path}\PYG{p}{.}\PYG{n}{pop\PYGZus{}back}\PYG{p}{();}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

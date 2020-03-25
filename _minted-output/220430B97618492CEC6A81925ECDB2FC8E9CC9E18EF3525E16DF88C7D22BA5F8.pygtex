@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// indeg0 = indegree 0}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{vis}\PYG{p}{,} \PYG{n}{indegree}\PYG{p}{,} \PYG{n}{path}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{adj}\PYG{p}{,} \PYG{n}{toposorts}\PYG{p}{;}
+\PYG{n}{deque}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{indeg0}\PYG{p}{;}
+\end{Verbatim}

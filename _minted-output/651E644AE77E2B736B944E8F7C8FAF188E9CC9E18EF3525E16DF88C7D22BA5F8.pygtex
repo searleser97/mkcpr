@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{addEdgeMBM}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{v}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{addEdge}\PYG{p}{(}\PYG{n}{u} \PYG{o}{+=} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{v} \PYG{o}{+=} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+  \PYG{n}{addEdge}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{u}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+  \PYG{n}{addEdge}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

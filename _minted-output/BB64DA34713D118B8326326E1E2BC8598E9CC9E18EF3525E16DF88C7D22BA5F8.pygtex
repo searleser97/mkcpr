@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{bool} \PYG{n+nf}{levelGraph}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{s}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{t}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{level}\PYG{p}{.}\PYG{n}{assign}\PYG{p}{(}\PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(),} \PYG{l+m+mi}{0}\PYG{p}{);}
+  \PYG{n}{level}\PYG{p}{[}\PYG{n}{s}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+  \PYG{n}{queue}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{q}\PYG{p}{;}
+  \PYG{n}{q}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{s}\PYG{p}{);}
+  \PYG{k}{while} \PYG{p}{(}\PYG{o}{!}\PYG{n}{q}\PYG{p}{.}\PYG{n}{empty}\PYG{p}{())} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{n}{q}\PYG{p}{.}\PYG{n}{front}\PYG{p}{();}
+    \PYG{n}{q}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{\PYGZam{}}\PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+      \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{level}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{flow}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{cap}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+        \PYG{n}{q}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{v}\PYG{p}{);}
+        \PYG{n}{level}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{n}{level}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{level}\PYG{p}{[}\PYG{n}{t}\PYG{p}{];}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

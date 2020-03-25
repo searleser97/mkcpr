@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(N)}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{connectedComponents}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{comps}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{u} \PYG{o}{\PYGZlt{}} \PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{u}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{comp}\PYG{p}{;}
+    \PYG{n}{dfsCC}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{comp}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{comp}\PYG{p}{.}\PYG{n}{empty}\PYG{p}{())}
+      \PYG{n}{comps}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{comp}\PYG{p}{),} \PYG{n}{compId}\PYG{o}{++}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{comps}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{init}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{adj}\PYG{p}{.}\PYG{n}{assign}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{());}
+  \PYG{n}{heavy}\PYG{p}{.}\PYG{n}{assign}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{);}
+  \PYG{n}{vals}\PYG{p}{.}\PYG{n}{assign}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+  \PYG{n}{p} \PYG{o}{=} \PYG{n}{root} \PYG{o}{=} \PYG{n}{stPos} \PYG{o}{=} \PYG{n}{depth} \PYG{o}{=} \PYG{n}{heavy}\PYG{p}{;}
+  \PYG{n}{st} \PYG{o}{=} \PYG{n}{SegmentTree}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{n}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

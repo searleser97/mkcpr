@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// \PYGZti{}O(N\PYGZca{}(1/4))}
+\PYG{n}{Map} \PYG{n+nf}{getPrimeFactors}\PYG{p}{(}\PYG{n}{li} \PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{Map} \PYG{n}{pf}\PYG{p}{;}
+  \PYG{n}{getpf}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{pf}\PYG{p}{);}
+  \PYG{k}{return} \PYG{n}{pf}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

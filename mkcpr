@@ -18,7 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 '''
 
 
-from os import listdir
+from os import listdir, getcwd
 from os.path import isfile, isdir, join
 import re
 import json
@@ -160,17 +160,15 @@ def main(currPath, depth, sections):
 
 
 if __name__ == '__main__':
-    configFilePath = join(sys.path[0], "mkcpr-config.json")
+    configFilePath = join(getcwd(), "mkcpr-config.json")
 
     if (len(sys.argv) == 2 and sys.argv[1] == "-h"):
         print("Usage:")
-        print("\tpython mkcpr.py [CONFIG FILE PATH]")
+        print("\tmkcpr [CONFIG FILE PATH]")
         exit(0)
 
     if (len(sys.argv) == 2):
         configFilePath = sys.argv[1]
-    else:
-        print("Warning: Missing configuration file path in arguments (using default)")
 
     try:
         with open(configFilePath, 'r') as f:
@@ -189,12 +187,24 @@ if __name__ == '__main__':
             except KeyError:
                 pass
     except FileNotFoundError:
-        print("Error: Configuration file not found in:", configFilePath)
+        print("Error: Configuration file not found in \"" + configFilePath + "\"")
         exit(0)
     sections = []
+    if not isdir(codeFolder):
+        print("Error: Code Folder \"" + codeFolder + "\" not found.")
+        exit(0)
     main(codeFolder, 0, sections)
-    with open(templatePath, 'r') as f:
-        template = f.read()
-        output = template.replace(TextToReplaceInTemplate, output)
-        with open(outputFilePath, 'w') as f2:
-            f2.write(output)
+    try:
+        with open(templatePath, 'r') as f:
+            template = f.read()
+            output = template.replace(TextToReplaceInTemplate, output)
+            try:
+                with open(outputFilePath, 'w+') as f2:
+                    f2.write(output)
+                    print("Tex file written in \"" + outputFilePath + "\"")
+            except IOError:
+                print("Cannot write \"" + outputFilePath + "\"")
+                exit(0)
+    except FileNotFoundError:
+        print("Error: Tex template not found in \"" + templatePath + "\"")
+        exit(0)

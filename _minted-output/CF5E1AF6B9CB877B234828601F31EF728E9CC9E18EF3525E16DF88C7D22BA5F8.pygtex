@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// divs = divisors}
+
+\PYG{k}{typedef} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{k+kt}{int} \PYG{n}{li}\PYG{p}{;}
+\PYG{k}{typedef} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{li}\PYG{o}{\PYGZgt{}} \PYG{n}{V}\PYG{p}{;}
+
+\PYG{c+c1}{// O(sqrt(N))}
+\PYG{n}{V} \PYG{n+nf}{getDivisors}\PYG{p}{(}\PYG{n}{li} \PYG{n}{n}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{V} \PYG{n}{divs}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{n}{li} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{*} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{p}{(}\PYG{n}{n} \PYG{o}{\PYGZpc{}} \PYG{n}{i}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+      \PYG{n}{divs}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{i} \PYG{o}{*} \PYG{n}{i} \PYG{o}{!=} \PYG{n}{n}\PYG{p}{)} \PYG{n}{divs}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{n} \PYG{o}{/} \PYG{n}{i}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{divs}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

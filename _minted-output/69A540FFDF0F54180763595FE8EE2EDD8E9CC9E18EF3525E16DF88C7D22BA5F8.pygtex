@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(log(n)) [msb, ..., lsb]}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{toBaseB}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{b}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{ans}\PYG{p}{;}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{n}\PYG{p}{)} \PYG{n}{ans}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{n} \PYG{o}{\PYGZpc{}} \PYG{n}{b}\PYG{p}{),} \PYG{n}{n} \PYG{o}{/=} \PYG{n}{b}\PYG{p}{;}
+  \PYG{n}{reverse}\PYG{p}{(}\PYG{n}{ans}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(),} \PYG{n}{ans}\PYG{p}{.}\PYG{n}{end}\PYG{p}{());}
+  \PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
