@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{// O(lg\PYGZca{}2 (N))}
-\PYG{k+kt}{void} \PYG{n+nf}{update}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{v}\PYG{p}{,} \PYG{n}{T} \PYG{n}{val}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-  \PYG{n}{processPath}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{,} \PYG{p}{[}\PYG{o}{\PYGZam{}}\PYG{n}{val}\PYG{p}{](}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-    \PYG{n}{st}\PYG{p}{.}\PYG{n}{update}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,} \PYG{n}{r}\PYG{p}{,} \PYG{n}{val}\PYG{p}{);}
-  \PYG{p}{\PYGZcb{});}
-\PYG{p}{\PYGZcb{}}
-\end{Verbatim}

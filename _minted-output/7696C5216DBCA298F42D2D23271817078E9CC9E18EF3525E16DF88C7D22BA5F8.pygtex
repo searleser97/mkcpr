@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kt}{char}\PYG{p}{,} \PYG{k+kt}{signed} \PYG{k+kt}{char}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{k+kt}{char}
-\end{Verbatim}

@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kt}{void} \PYG{n+nf}{floodFill}\PYG{p}{()} \PYG{p}{\PYGZob{}}
-  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
-    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{m}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)}
-      \PYG{k}{if} \PYG{p}{(}\PYG{n}{mat}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{==} \PYG{n}{oldColor}\PYG{p}{)} \PYG{n}{floodFill}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{);}
-\PYG{p}{\PYGZcb{}}
-\end{Verbatim}

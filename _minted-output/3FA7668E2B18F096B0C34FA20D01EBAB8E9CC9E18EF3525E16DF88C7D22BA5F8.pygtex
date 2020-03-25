@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kt}{void} \PYG{n+nf}{addEdge}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{v}\PYG{p}{,} \PYG{n}{T} \PYG{n}{w}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-  \PYG{n}{Wedges}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(\PYGZob{}}\PYG{n}{w}\PYG{p}{,} \PYG{p}{\PYGZob{}}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{\PYGZcb{}\PYGZcb{});}
-\PYG{p}{\PYGZcb{}}
-\end{Verbatim}

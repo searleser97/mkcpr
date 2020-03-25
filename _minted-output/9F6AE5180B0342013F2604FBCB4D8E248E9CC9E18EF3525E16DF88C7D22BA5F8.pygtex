@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{// mbm = maximum bipartite matching}
-\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}Max Flow Min Cut Dinic.cpp\PYGZdq{}}
-\end{Verbatim}

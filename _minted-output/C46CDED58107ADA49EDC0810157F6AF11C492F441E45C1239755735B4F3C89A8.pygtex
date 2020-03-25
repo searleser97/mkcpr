@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZsq{}}\PYG{p}{:}
-    \PYG{n}{dividend}\PYG{p}{,} \PYG{n}{divisor} \PYG{o}{=} \PYG{n+nb}{map}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{,} \PYG{n+nb}{input}\PYG{p}{()}\PYG{o}{.}\PYG{n}{split}\PYG{p}{())}
-    \PYG{n}{divisor\PYGZus{}criteria} \PYG{o}{=} \PYG{n}{divisorCriteria}\PYG{p}{(}\PYG{n}{divisor}\PYG{p}{,} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{dividend}\PYG{p}{)))}
-    \PYG{k}{print}\PYG{p}{(}\PYG{n}{divisor\PYGZus{}criteria}\PYG{p}{)}
-    \PYG{k}{print}\PYG{p}{(}\PYG{n}{testDivisibility}\PYG{p}{(}\PYG{n}{dividend}\PYG{p}{,} \PYG{n}{divisor}\PYG{p}{,} \PYG{n}{divisor\PYGZus{}criteria}\PYG{p}{))}
-\end{Verbatim}
