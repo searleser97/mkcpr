@@ -38,7 +38,7 @@ The above command will generate a Tex file, which can be compiled with any Tex c
   "columns" : 2, // number of columns in your reference
   "templatePlaceHolder" : "CODE HERE", // text to replace in your template
   "sortBefore" : ["Data Structures"], // files or folders will appear first
-  "sortAfter" : ["Extras"] // file or folders will appear at the end
+  "sortAfter" : ["Extras"] /* file or folders will appear at the end */
 }
 ```
 
