@@ -9,8 +9,8 @@
 
 - Forget about undesired line breaks by specifying the lines of code you want together in the same page with a single comment before your lines of code.
 
-![good](https://codeforces.com/predownloaded/f6/1e/f61ec142697979d7ebb5b3ec715e2856ebc2faaf.png)
-![bad](https://codeforces.com/predownloaded/a1/4f/a14f0a93f62f3afb7d3519779c18d7e991948ed7.png)
+![good](https://codeforces.com/predownloaded/f6/1e/f61ec142697979d7ebb5b3ec715e2856ebc2faaf.png =250x250))
+![bad](https://codeforces.com/predownloaded/a1/4f/a14f0a93f62f3afb7d3519779c18d7e991948ed7.png =250x250))
 
  ![primes sieve](https://codeforces.com/predownloaded/29/ea/29ea463f8ac652c6bb5fa20fc1c7690546479333.png)
 - One single command and your reference will be ready to compile
