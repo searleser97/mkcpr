@@ -20,7 +20,10 @@
   - python 3.5+
 
 - Steps:
-  1. Just download this repository
+  1. Download this repository
+  2. Copy the script located in the root of this repository ```mkcpr``` to any location in your computer
+  3. Erase the downloaded repository
+  4. Preferably add the new location of the script to your environment variables
 
 ## Usage
 
