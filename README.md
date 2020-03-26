@@ -19,7 +19,6 @@
   <img src="https://codeforces.com/predownloaded/f6/1e/f61ec142697979d7ebb5b3ec715e2856ebc2faaf.png" width="300"/>
 </div>
 
- ![primes sieve]()
 - One single command and your reference will be ready to compile
 - Easy setup with a single json file
 - Highly configurable
