@@ -1,4 +1,4 @@
-// 14 <-- especifies how many lines of code should go together
+// 14
 vector<int> sieve, primes;
 
 // ~O(N * lg(lg(N)))
