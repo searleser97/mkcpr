@@ -46,7 +46,7 @@ The above command will generate a Tex file, which can be compiled with any Tex c
 
 ## Example
 
-You can see an example of how a working directory would look like [here](https://github.com/searleser97/Algorithms)
+You can see an example of how a working directory would look like [here](https://github.com/searleser97/competitive-programming-reference)
 
 ## License
 
