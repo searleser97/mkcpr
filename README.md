@@ -30,7 +30,7 @@ The above command will generate a Tex file, which can be compiled with any Tex c
 
 ## Configuration File Options
 
-```json
+```jsonc
 {
   "codeFolder" : "Code Folder Path", // Path to your actual code for reference
   "templatePath" : "template.tex", // LaTex template path
