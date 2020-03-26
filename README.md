@@ -8,7 +8,7 @@
 ## Features
 
 - Forget about undesired line breaks by specifying the lines of code you want together in the same page with a single comment before your lines of code.
- ![primes sieve](https://lh4.googleusercontent.com/b-PI6xWj8sUki2_boNfKkaKqqwMYXnRNlCiIFpdim_rAmb1XIw2RjLA1wrjG7Bdsr8Pu8ShEpJcsMgeLdkcKVHTKeRgD3IUXX2MY9IKsCmTcibepkfk=w1280)
+ ![primes sieve](https://codeforces.com/8c6d70/primesieve.png)
 - One single command and your reference will be ready to compile
 - Easy setup with a single json file
 - Highly configurable
