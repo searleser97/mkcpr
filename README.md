@@ -8,9 +8,10 @@
 ## Features
 
 - Forget about undesired line breaks by specifying the lines of code you want together in the same page with a single comment before your lines of code.
+ ![primes sieve](https://lh4.googleusercontent.com/b-PI6xWj8sUki2_boNfKkaKqqwMYXnRNlCiIFpdim_rAmb1XIw2RjLA1wrjG7Bdsr8Pu8ShEpJcsMgeLdkcKVHTKeRgD3IUXX2MY9IKsCmTcibepkfk=w1280)
 - One single command and your reference will be ready to compile
-- Highly configurable with json file
-- Supports most programming languages
+- Easy setup with a single json file
+- Highly configurable
 
 ## Installation
 
@@ -29,7 +30,7 @@ The above command will generate a Tex file, which can be compiled with any Tex c
 
 ## Configuration File Options
 
-```jsonc
+```json
 {
   "codeFolder" : "Code Folder Path", // Path to your actual code for reference
   "templatePath" : "template.tex", // LaTex template path
@@ -41,6 +42,10 @@ The above command will generate a Tex file, which can be compiled with any Tex c
   "sortAfter" : ["Extras"] // file or folders will appear at the end
 }
 ```
+
+## Example
+
+You can see an example of how a working directory would look like [here](https://github.com/searleser97/Algorithms)
 
 ## License
 
