@@ -9,8 +9,8 @@
 
 - Forget about undesired line breaks by specifying the lines of code you want together in the same page with a single comment before your lines of code.
 - One single command and your reference will be ready to compile
-- Easy setup with a single json file
-- Highly configurable
+- Highly configurable with json file
+- Supports most programming languages
 
 ## Installation
 
