@@ -45,8 +45,14 @@
 ## Usage
 
 ```shell
-python mkcpr [CONFIG FILE PATH]
+python3 mkcpr [CONFIG FILE PATH]
 ```
+or just
+
+```shell
+mkcpr [CONFIG FILE PATH]
+```
+
 The above command will generate a Tex file, which can be compiled with any online or local Tex compiler of your preference.
 
 ## Configuration File Options
