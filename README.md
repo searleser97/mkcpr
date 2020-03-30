@@ -7,6 +7,8 @@
 
 ## Features
 
+- Build your reference just from your competitive programming code folder.
+
 - Forget about undesired line breaks by specifying the lines of code you want together in the same page with a single comment before your lines of code.
 
 
