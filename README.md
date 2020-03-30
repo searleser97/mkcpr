@@ -9,6 +9,8 @@
 
 - Build your reference just from your competitive programming code folder.
 
+  <img src="https://codeforces.com/predownloaded/43/53/4353216697913b06f2909ee25b7d7fe586133501.png"/>
+
 - Forget about undesired line breaks by specifying the lines of code you want together in the same page with a single comment before your lines of code.
 
 
