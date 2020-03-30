@@ -1,12 +1,13 @@
 
 # mkcpr
+
 ### Competitive Programming Reference Builder Tool
 
 ## About
+
 ```mkcpr``` is a command line utility that helps you to build your competitive programming reference PDF.
 
 ## Features
-
 - Build your reference just from your competitive programming code folder.
 
   <img src="https://codeforces.com/predownloaded/43/53/4353216697913b06f2909ee25b7d7fe586133501.png"/>
@@ -25,35 +26,14 @@
 </div>
 
 - One single command and your reference will be ready to compile
-- Easy setup with a single json file
-- Highly configurable
+- Build it with your own style
 
-## Installation
+## Requirements
 
-- Requirements:
-  - python 3.5+
-  - Online or local LaTex compiler
-  - A LaTex template (you can use the one provided in this repository ```template.tex```)
-
-- Steps:
-  1. Download this repository
-  2. Copy the script located in the root of this repository ```mkcpr``` to any location in your computer
-  3. Copy the template located in the root of this repository ```template.tex``` to any location in your computer
-  3. Erase the downloaded repository
-  4. Preferably add the new location of the script to your environment variables
-
-## Usage
-
-```shell
-python3 mkcpr [CONFIG FILE PATH]
-```
-or just
-
-```shell
-mkcpr [CONFIG FILE PATH]
-```
-
-The above command will generate a Tex file, which can be compiled with any online or local Tex compiler of your preference.
+- python 3.5+
+- Online or local LaTex compiler
+- A LaTex template (you can use the one provided in this repository ```template.tex```)
+- Configuration File (described below)
 
 ## Configuration File Options
 
@@ -69,6 +49,27 @@ The above command will generate a Tex file, which can be compiled with any onlin
   "sortAfter" : ["Extras"] // file or folders will appear at the end
 }
 ```
+## Installation
+
+- Steps:
+  1. Download this repository
+  2. Copy the script located in the root of this repository ```mkcpr``` to your working directory (or any location in your computer)
+  3. Copy the template located in the root of this repository ```template.tex``` to your working directory
+  3. Erase the downloaded repository
+  4. Preferably add the new location of the script to your environment variables
+
+## Usage
+
+```shell
+python3 mkcpr [CONFIG FILE PATH]
+```
+or just
+
+```shell
+mkcpr [CONFIG FILE PATH]
+```
+
+The above command will generate a Tex file, which can be compiled with any online or local Tex compiler of your preference.
 
 ## Example
 
