@@ -54,8 +54,10 @@ The above command will generate a Tex file, which can be compiled with any onlin
 
 ## Features
 - Build your reference just from your competitive programming code folder.
-
+<div>
   <img src="https://codeforces.com/predownloaded/43/53/4353216697913b06f2909ee25b7d7fe586133501.png"/>
+  <img src="https://codeforces.com/predownloaded/77/c0/77c0505cccfaaf5d5f1634462c001dee002f7903.png"/>
+</div>
 
 - Forget about undesired line breaks by specifying the lines of code you want together in the same page with a single comment before your lines of code.
 
