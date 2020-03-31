@@ -12,5 +12,4 @@ void primeSieve(int n) {
   primes.push_back(2);
   for (int i = 3; i < n; i++)
     if (!sieve[i] && (i & 1)) primes.push_back(i);
-  IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 }
