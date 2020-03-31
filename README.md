@@ -11,8 +11,10 @@
 
 - python 3.5+
 - Online or local LaTex compiler
-- A LaTex template (you can use the one provided in this repository ```template.tex```)
+- Folder containing your codes for programming competitions
+- LaTex template (you can use the one provided in this repository ```template.tex```)
 - Configuration File (described below)
+
 
 ## Configuration File Options
 
@@ -34,9 +36,9 @@
 - Steps:
   1. Download this repository
   2. Copy the script located in the root of this repository ```mkcpr``` to your working directory (or any location in your computer)
-  3. Copy the template located in the root of this repository ```template.tex``` to your working directory
-  3. Erase the downloaded repository
-  4. Preferably add the new location of the script to your environment variables
+  3. Copy the template and configuration files located in the root of this repository ```template.tex``` and ```mkcpr-config.json``` to your working directory
+  3. Erase the downloaded repository (optional)
+  4. Preferably add the new location of the script to your environment variables (optional)
 
 ## Usage
 
