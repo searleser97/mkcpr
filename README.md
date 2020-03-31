@@ -7,27 +7,6 @@
 
 ```mkcpr``` is a command line utility that helps you to build your competitive programming reference PDF.
 
-## Features
-- Build your reference just from your competitive programming code folder.
-
-  <img src="https://codeforces.com/predownloaded/43/53/4353216697913b06f2909ee25b7d7fe586133501.png"/>
-
-- Forget about undesired line breaks by specifying the lines of code you want together in the same page with a single comment before your lines of code.
-
-
-<div>
-  <div style="width: 100px; height: 10px; background: red;"></div>
-  <img src="https://codeforces.com/predownloaded/29/ea/29ea463f8ac652c6bb5fa20fc1c7690546479333.png"/>
-</div>
-
-<div>
-  <img src="https://codeforces.com/predownloaded/a1/4f/a14f0a93f62f3afb7d3519779c18d7e991948ed7.png" width="400" height="250"/>
-  <img src="https://codeforces.com/predownloaded/f6/1e/f61ec142697979d7ebb5b3ec715e2856ebc2faaf.png" width="400" height="250"/>
-</div>
-
-- One single command and your reference will be ready to compile
-- Build it with your own style
-
 ## Requirements
 
 - python 3.5+
@@ -49,6 +28,7 @@
   "sortAfter" : ["Extras"] // file or folders will appear at the end
 }
 ```
+
 ## Installation
 
 - Steps:
@@ -70,6 +50,27 @@ mkcpr [CONFIG FILE PATH]
 ```
 
 The above command will generate a Tex file, which can be compiled with any online or local Tex compiler of your preference.
+
+## Features
+- Build your reference just from your competitive programming code folder.
+
+  <img src="https://codeforces.com/predownloaded/43/53/4353216697913b06f2909ee25b7d7fe586133501.png"/>
+
+- Forget about undesired line breaks by specifying the lines of code you want together in the same page with a single comment before your lines of code.
+
+
+<div>
+  <div style="width: 100px; height: 10px; background: red;"></div>
+  <img src="https://codeforces.com/predownloaded/29/ea/29ea463f8ac652c6bb5fa20fc1c7690546479333.png"/>
+</div>
+
+<div>
+  <img src="https://codeforces.com/predownloaded/a1/4f/a14f0a93f62f3afb7d3519779c18d7e991948ed7.png" width="400" height="250"/>
+  <img src="https://codeforces.com/predownloaded/f6/1e/f61ec142697979d7ebb5b3ec715e2856ebc2faaf.png" width="400" height="250"/>
+</div>
+
+- One single command and your reference will be ready to compile
+- Build it with your own style
 
 ## Example
 
