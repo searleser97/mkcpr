@@ -56,7 +56,6 @@ The above command will generate a Tex file, which can be compiled with any onlin
 - Build your reference just from your competitive programming code folder.
 <div>
   <img src="https://codeforces.com/predownloaded/43/53/4353216697913b06f2909ee25b7d7fe586133501.png"/>
-  &rightarrow;
   <img src="https://codeforces.com/predownloaded/35/f5/35f510c1d145e2f3fb9fb147fcbf3febdff3ddf2.png"/>
 </div>
 
