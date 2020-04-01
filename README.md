@@ -2,7 +2,7 @@
 
 # mkcpr
 
-#### Competitive Programming Reference Builder Tool
+### Competitive Programming Reference Builder Tool
 
 ## About
 
