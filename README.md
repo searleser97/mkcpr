@@ -1,24 +1,26 @@
 
+
 # mkcpr
 
 ### Competitive Programming Reference Builder Tool
 
 ## About
 
-```mkcpr``` is a command line utility that helps you to build your competitive programming reference PDF.
+```mkcpr``` is a command line utility written in python that helps you to build your *Competitive Programming Reference* in PDF.
 
+This command will generate a $\text{LaTex}$ formatted file, which will be ready to be compiled into your new *Competitive Programming Reference*, using any online or local $\text{LaTex}$ compiler of your preference.
 ## Usage
 
+- Linux & MacOS
 ```shell
 python3 mkcpr [CONFIG FILE PATH]
 ```
-or just
+- Windows
 
 ```shell
-mkcpr [CONFIG FILE PATH]
+python mkcpr [CONFIG FILE PATH]
 ```
-
-The above command will generate a Tex file, which can be compiled with any online or local Tex compiler of your preference.
+Note: ```[CONFIG FILE PATH]``` is an optional parameter with ```"mkcpr-config.json"``` as default value
 
 ## Requirements
 
@@ -77,7 +79,7 @@ The above command will generate a Tex file, which can be compiled with any onlin
 
 ## Example
 
-You can see an example of how a working directory would look like [here](https://github.com/searleser97/competitive-programming-reference)
+You can see an example of how a working directory would look like [HERE](https://github.com/searleser97/competitive-programming-reference)
 
 ## License
 
