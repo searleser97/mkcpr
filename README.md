@@ -8,7 +8,7 @@
 
 ```mkcpr``` is a command line utility written in python that helps you to build your *Competitive Programming Reference* in PDF.
 
-This command will generate a $LaTex$ formatted file, which will be ready to be compiled into your new *Competitive Programming Reference*, using any online or local $\text{LaTex}$ compiler of your preference.
+This command will generate a **LaTex** formatted file, which will be ready to be compiled into your new *Competitive Programming Reference*, using any online or local **LaTex** compiler of your preference.
 ## Usage
 
 - Linux & MacOS
