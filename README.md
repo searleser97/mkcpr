@@ -11,14 +11,10 @@
 This command will generate a LaTex formatted file, which will be ready to be compiled into your new *Competitive Programming Reference*, using any online or local LaTex compiler of your preference.
 ## Usage
 
-- Linux & MacOS
-```shell
-python3 mkcpr [CONFIG FILE PATH]
-```
-- Windows
+- In your working directory run:
 
 ```shell
-python mkcpr [CONFIG FILE PATH]
+mkcpr [CONFIG FILE PATH]
 ```
 Note: ```[CONFIG FILE PATH]``` is an optional parameter with ```"mkcpr-config.json"``` as default value
 
@@ -48,11 +44,9 @@ Note: ```[CONFIG FILE PATH]``` is an optional parameter with ```"mkcpr-config.js
 
 ## Installation
 
-1. Download this repository
-2. Copy the script located in the root of this repository ```mkcpr``` to your working directory (or any location in your computer)
-3. Copy the template and configuration files located in the root of this repository ```template.tex``` and ```mkcpr-config.json``` to your working directory
-3. Erase the downloaded repository (optional)
-4. Preferably add the new location of the script to your environment variables (optional)
+1. Run ```pip install mkcpr```
+2. Copy the template and configuration files located in the root of this repository ```template.tex``` and ```mkcpr-config.json``` to your working directory
+3. Update ```mkcpr-config.json``` according to the [Configuration file options](#configuration-file-options) section.
 
 ## Features
 

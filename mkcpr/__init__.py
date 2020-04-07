@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 '''
 mkcpr "Competitive programming reference builder tool"
 Copyright (C) 2020  Sergio G. Sanchez V.
@@ -129,7 +128,7 @@ def printFile(path, depth, sections):
     output += content + '\n'
 
 
-def main(currPath, depth, sections):
+def buildOutput(currPath, depth, sections):
     global excluded
     if len(sections) and sections[-1] in excluded:
         return
@@ -149,9 +148,9 @@ def main(currPath, depth, sections):
             if isFirst:
                 isFirst = False
                 sections.append(dirOrFile)
-                main(f, depth + 1, sections)
+                buildOutput(f, depth + 1, sections)
             else:
-                main(f, depth + 1, [dirOrFile])
+                buildOutput(f, depth + 1, [dirOrFile])
         elif isfile(f) and re.fullmatch('.+\\.(cpp|c|py|java|tex)', dirOrFile):
             if isFirst:
                 isFirst = False
@@ -161,7 +160,28 @@ def main(currPath, depth, sections):
                 printFile(f, depth + 1, [dirOrFile])
 
 
-if __name__ == '__main__':
+def main():
+    global codeFolder
+    global templatePath
+    global outputFilePath
+    global excluded
+    global numberOfColumns
+    global TextToReplaceInTemplate
+    global sortBefore
+    global sortAfter
+    global output
+
+    codeFolder = "Reference"
+    templatePath = "ReferenceTemplate.tex"
+    outputFilePath = "Reference.tex"
+
+    excluded = set(['.vscode', '__pycache__'])
+    numberOfColumns = 2
+    TextToReplaceInTemplate = "CODE HERE"
+
+    sortBefore = set()
+    sortAfter = set()
+    output = ""
     if sys.version_info[0] < 3:
         print("Error: Use python 3.5+ to execute this script")
         exit(0)
@@ -206,7 +226,7 @@ if __name__ == '__main__':
     if not isdir(codeFolder):
         print("Error: Code Folder \"" + codeFolder + "\" not found.")
         exit(0)
-    main(codeFolder, 0, sections)
+    buildOutput(codeFolder, 0, sections)
     try:
         with open(templatePath, 'r') as f:
             template = f.read()
