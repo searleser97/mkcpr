@@ -76,6 +76,7 @@ Note: ```[CONFIG FILE PATH]``` is an optional parameter with ```"mkcpr-config.js
 
 - One single command and your reference will be ready to compile
 - Build it with your own style
+- support for most file extensions. (.cpp, .py, .java, .tex, .sh, ...)
 
 ## Example
 
