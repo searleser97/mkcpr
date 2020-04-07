@@ -44,7 +44,10 @@ Note: ```[CONFIG FILE PATH]``` is an optional parameter with ```"mkcpr-config.js
 
 ## Installation
 
-1. Run ```pip install mkcpr```
+1. Run:
+  ```shell
+    pip install mkcpr --user
+  ```
 2. Copy the template and configuration files located in the root of this repository ```template.tex``` and ```mkcpr-config.json``` to your working directory
 3. Update ```mkcpr-config.json``` according to the [Configuration file options](#configuration-file-options) section.
 
