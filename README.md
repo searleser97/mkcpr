@@ -55,7 +55,12 @@ Note: ```[CONFIG FILE PATH]``` is an optional parameter with ```"mkcpr-config.js
 4. Preferably add the new location of the script to your environment variables (optional)
 
 ## Features
+
+- One single command and your reference will be ready to compile
+- Build it with your own style
+- support for most file extensions. (.cpp, .py, .java, .tex, .sh, ...)
 - Build your reference just from your competitive programming code folder.
+
 <div>
   <img src="https://codeforces.com/predownloaded/43/53/4353216697913b06f2909ee25b7d7fe586133501.png"/>
   <img src="https://codeforces.com/predownloaded/35/f5/35f510c1d145e2f3fb9fb147fcbf3febdff3ddf2.png"/>
@@ -73,10 +78,6 @@ Note: ```[CONFIG FILE PATH]``` is an optional parameter with ```"mkcpr-config.js
   <img src="https://codeforces.com/predownloaded/a1/4f/a14f0a93f62f3afb7d3519779c18d7e991948ed7.png" width="400" height="250"/>
   <img src="https://codeforces.com/predownloaded/f6/1e/f61ec142697979d7ebb5b3ec715e2856ebc2faaf.png" width="400" height="250"/>
 </div>
-
-- One single command and your reference will be ready to compile
-- Build it with your own style
-- support for most file extensions. (.cpp, .py, .java, .tex, .sh, ...)
 
 ## Example
 
