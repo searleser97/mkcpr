@@ -158,6 +158,19 @@ def buildOutput(currPath, depth, sections):
                 printFile(f, depth + 1, sections)
             else:
                 printFile(f, depth + 1, [dirOrFile])
+                
+def outputConfigFile():
+	configJson = {}
+	configJson["codeFolder"] = "/home/san/Projects/mkcpr/CodeFolderExample"
+	configJson["templatePath"] = "/home/san/Projects/mkcpr/template.tex"
+	configJson["outputFilePath"] = "/home/san/Projects/mkcpr/output.tex"
+	configJson["excluded"] = [".vscode", "__pycache__"]
+	configJson["columns"] = 2
+	configJson["templatePlaceHolder"] = "CODE HERE"
+	configJson["sortBefore"] = ["Data Structures"]
+	configJson["sortAfter"] = ["Extras"]
+	with open('mkcpr-config.json', 'w') as f:
+		json.dump(configJson,f, indent=2)
 
 
 def main():
@@ -191,6 +204,10 @@ def main():
         print("Usage:")
         print("\tmkcpr [CONFIG FILE PATH]")
         exit(0)
+    if (len(sys.argv) == 2 and sys.argv[1] == "-c"):
+        outputConfigFile()
+        print("Configuration file written in " + getcwd() + "/mkcpr-config.json")
+        exit(0)
 
     if (len(sys.argv) == 2):
         configFilePath = sys.argv[1]
@@ -221,6 +238,7 @@ def main():
                 sortAfter = set(config["sortAfter"])
     except FileNotFoundError:
         print("Error: Configuration file not found in \"" + configFilePath + "\"")
+        print("To create a new configuration file use the -c flag")
         exit(0)
     sections = []
     if not isdir(codeFolder):
