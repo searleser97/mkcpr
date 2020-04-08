@@ -161,9 +161,10 @@ def buildOutput(currPath, depth, sections):
                 
 def outputConfigFile():
 	configJson = {}
-	configJson["codeFolder"] = "/home/san/Projects/mkcpr/CodeFolderExample"
-	configJson["templatePath"] = "/home/san/Projects/mkcpr/template.tex"
-	configJson["outputFilePath"] = "/home/san/Projects/mkcpr/output.tex"
+	path = getcwd()
+	configJson["codeFolder"] =  path + "/CodeFolderName"
+	configJson["templatePath"] = path + "/template.tex"
+	configJson["outputFilePath"] = path + "/output.tex"
 	configJson["excluded"] = [".vscode", "__pycache__"]
 	configJson["columns"] = 2
 	configJson["templatePlaceHolder"] = "CODE HERE"
