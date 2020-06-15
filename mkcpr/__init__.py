@@ -47,7 +47,7 @@ def printSectionType(sectionName, depth, isFile):
     global newpageForSection
 
     vspace = 0
-    style = '\\bfseries\\sffamily\\centering'
+    style = '\\bfseries\\centering'
     if depth == 1:
         if newpageForSection:
             output += "\\newpage\n"
@@ -68,7 +68,7 @@ def printSectionType(sectionName, depth, isFile):
         vspace = 1
     if isFile:
         sectionName = sectionName[:sectionName.rfind('.')]
-        style = '\\large\\bfseries\\sffamily\\underline'
+        style = '\\large\\bfseries\\underline'
         vspace = 0
     sectionName = sectionName.replace("_", " ")
     output += '\\' + sectionType + 'font{' + style + '}\n'
@@ -303,21 +303,20 @@ def main():
     if not isdir(codeFolder):
         print("Error: Code Folder \"" + codeFolder + "\" not found.")
         exit(0)
+    if len(fontFamily) > 0:
+        output += "\\setmainfont{" + fontFamily + "}\n"
     if len(titlePagePath) > 0:
         if not isfile(titlePagePath):
             print("Error: Title Page \"" + titlePagePath + "\" not found.")
             exit(0)
         titlePageExtension = titlePagePath.split('.')[-1]
         if titlePageExtension == "pdf":
-            output = "\\includepdf{\"" + titlePagePath + "\"}\n"
+            output += "\\includepdf{\"" + titlePagePath + "\"}\n"
         elif titlePageExtension == "tex":
             output = "\\include{\"" + titlePagePath + "\"}\n"
         output += "\\null\n"
         output += "\\thispagestyle{empty}\n"
         output += "\\newpage\n"
-    if len(fontFamily) > 0:
-        output += "\\fontfamily{" + fontFamily + "}\n"
-        output += "\\selectfont\n"
     if numberOfColumns >= 2:
         output += "\\begin{multicols*}{" + str(numberOfColumns) + "}\n"
     if tableOfContentsEnabled:
