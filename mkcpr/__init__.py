@@ -26,10 +26,14 @@ import sys
 codeFolder = "Reference"
 templatePath = "ReferenceTemplate.tex"
 outputFilePath = "Reference.tex"
+titlePagePath = ""
 
 excluded = set(['.vscode', '__pycache__'])
 numberOfColumns = 2
 TextToReplaceInTemplate = "CODE HERE"
+fontFamily = ""
+tableOfContentsEnabled = True
+clearDoublePage = False
 
 sortBefore = set()
 sortAfter = set()
@@ -69,7 +73,8 @@ def printSectionType(sectionName, depth, isFile):
     output += '\\' + sectionType + '*{' + sectionName + '}\n'
     if depth == 1:
         output += '\\markboth{' + sectionName.upper() + '}{}\n'
-    output += '\\addcontentsline{toc}{' + sectionType + '}{' + sectionName + '}\n'
+    output += '\\addcontentsline{toc}{' + \
+        sectionType + '}{' + sectionName + '}\n'
     if vspace:
         output += '\\vspace{' + str(vspace + 1) + 'em}\n'
 
@@ -92,13 +97,15 @@ def printFile(path, depth, sections):
 
     extension = sections[-1][sections[-1].rfind('.') + 1:]
     if extension == 'tex':
-        output += '\\end{multicols*}\n'
+        if numberOfColumns >= 2:
+            output += '\\end{multicols*}\n'
         for i in range(len(sections)):
             printSectionType(sections[i], depth -
                              len(sections) + i + 1, i == len(sections) - 1)
         with open(path) as f:
             output += f.read() + '\n'
-        output += '\\begin{multicols*}{' + str(numberOfColumns) + '}\n'
+        if numberOfColumns >= 2:
+            output += '\\begin{multicols*}{' + str(numberOfColumns) + '}\n'
         return
     if extension == 'h':
         extension = 'cpp'
@@ -158,20 +165,40 @@ def buildOutput(currPath, depth, sections):
                 printFile(f, depth + 1, sections)
             else:
                 printFile(f, depth + 1, [dirOrFile])
-                
+
+
+class ConfigProperties:
+    codeFolder = "codeFolder"
+    templatePath = "templatePath"
+    outputFilePath = "outputFilePath"
+    excluded = "excluded"
+    columns = "columns"
+    templatePlaceHolder = "templatePlaceHolder"
+    sortBefore = "sortBefore"
+    sortAfter = "sortAfter"
+    titlePagePath = "titlePagePath"
+    fontFamily = "fontFamily"
+    tableOfContents = "tableOfContents"
+    clearDoublePage = "clearDoublePage"
+
+
 def outputConfigFile():
-	configJson = {}
-	path = getcwd()
-	configJson["codeFolder"] =  path + "/CodeFolderName"
-	configJson["templatePath"] = path + "/template.tex"
-	configJson["outputFilePath"] = path + "/output.tex"
-	configJson["excluded"] = [".vscode", "__pycache__"]
-	configJson["columns"] = 2
-	configJson["templatePlaceHolder"] = "CODE HERE"
-	configJson["sortBefore"] = ["Data Structures"]
-	configJson["sortAfter"] = ["Extras"]
-	with open('mkcpr-config.json', 'w') as f:
-		json.dump(configJson,f, indent=2)
+    path = getcwd()
+    configJson = {ConfigProperties.codeFolder: join(path, "CodeFolderName"),
+                  ConfigProperties.templatePath: join(path, "template.tex"),
+                  ConfigProperties.outputFilePath : join(path, "output.tex"),
+                  ConfigProperties.excluded : [".vscode", "__pycache__"],
+                  ConfigProperties.columns : 2,
+                  ConfigProperties.templatePlaceHolder : "CODE HERE",
+                  ConfigProperties.sortBefore : ["Data Structures"],
+                  ConfigProperties.sortAfter : ["Extras"],
+                  ConfigProperties.tableOfContents : True,
+                  ConfigProperties.titlePagePath : "",
+                  ConfigProperties.tableOfContents : True,
+                  ConfigProperties.fontFamily : "lmss"
+    }
+    with open('mkcpr-config.json', 'w') as f:
+        json.dump(configJson, f, indent=4)
 
 
 def main():
@@ -184,6 +211,10 @@ def main():
     global sortBefore
     global sortAfter
     global output
+    global titlePagePath
+    global fontFamily
+    global tableOfContentsEnabled
+    global clearDoublePage
 
     codeFolder = "Reference"
     templatePath = "ReferenceTemplate.tex"
@@ -207,7 +238,8 @@ def main():
         exit(0)
     if (len(sys.argv) == 2 and sys.argv[1] == "-c"):
         outputConfigFile()
-        print("Configuration file written in " + getcwd() + "/mkcpr-config.json")
+        print("Configuration file written in " +
+              getcwd() + "/mkcpr-config.json")
         exit(0)
 
     if (len(sys.argv) == 2):
@@ -225,18 +257,31 @@ def main():
                 templatePath = config["templatePath"]
                 outputFilePath = config["outputFilePath"]
             except KeyError as e:
-                print("Error: Invalid config file. Missing", e, "entry in config file")
+                print("Error: Invalid config file. Missing",
+                      e, "entry in config file")
                 exit(0)
-            if "excluded" in config:
-                excluded = set(config["excluded"])
-            if "columns" in config:
-                numberOfColumns = config["columns"]
-            if "templatePlaceHolder" in config:
-                TextToReplaceInTemplate = config["templatePlaceHolder"]
-            if "sortBefore" in config:
-                sortBefore = set(config["sortBefore"])
-            if "sortAfter" in config:
-                sortAfter = set(config["sortAfter"])
+            if ConfigProperties.excluded in config:
+                excluded = set(config[ConfigProperties.excluded])
+            if ConfigProperties.columns in config:
+                numberOfColumns = config[ConfigProperties.columns]
+            if ConfigProperties.templatePlaceHolder in config:
+                TextToReplaceInTemplate = config[ConfigProperties.templatePlaceHolder]
+            if ConfigProperties.sortBefore in config:
+                sortBefore = set(config[ConfigProperties.sortBefore])
+            if ConfigProperties.sortAfter in config:
+                sortAfter = set(config[ConfigProperties.sortAfter])
+            if ConfigProperties.titlePagePath in config:
+                titlePagePath = config[ConfigProperties.titlePagePath]
+            if ConfigProperties.fontFamily in config:
+                fontFamily = config[ConfigProperties.fontFamily]
+            if ConfigProperties.clearDoublePage in config:
+                clearDoublePage = config[ConfigProperties.clearDoublePage]
+            if ConfigProperties.tableOfContents in config:
+                tableOfContentsEnabled = config[ConfigProperties.tableOfContents]
+                if type(tableOfContentsEnabled) is not bool:
+                    print(
+                        "Error in config: tableofcontents should be a boolean value (True or False)")
+                    exit(0)
     except FileNotFoundError:
         print("Error: Configuration file not found in \"" + configFilePath + "\"")
         print("To create a new configuration file use the -c flag")
@@ -245,7 +290,31 @@ def main():
     if not isdir(codeFolder):
         print("Error: Code Folder \"" + codeFolder + "\" not found.")
         exit(0)
+    if len(titlePagePath) > 0:
+        if not isfile(titlePagePath):
+            print("Error: Title Page \"" + titlePagePath + "\" not found.")
+            exit(0)
+        titlePageExtension = titlePagePath.split('.')[-1]
+        if titlePageExtension == "pdf":
+            output = "\\includepdf{\"" + titlePagePath + "\"}\n"
+        elif titlePageExtension == "tex":
+            output = "\\include{\"" + titlePagePath + "\"}\n"
+        output += "\\null\n"
+        output += "\\thispagestyle{empty}\n"
+        output += "\\newpage\n"
+    if len(fontFamily) > 0:
+        output += "\\fontfamily{" + fontFamily + "}\n"
+        output += "\\selectfont\n"
+    if numberOfColumns >= 2:
+        output += "\\begin{multicols*}{" + str(numberOfColumns) + "}\n"
+    if tableOfContentsEnabled:
+        output += "\\tableofcontents\n"
+        output += "\\newpage\n"
+        if clearDoublePage:
+            output += "\\cleardoublepage"
     buildOutput(codeFolder, 0, sections)
+    if (numberOfColumns) >= 2:
+        output += "\\end{multicols*}\n"
     try:
         with open(templatePath, 'r') as f:
             template = f.read()
