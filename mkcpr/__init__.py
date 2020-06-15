@@ -39,14 +39,13 @@ newpageForSection = False
 sortBefore = set()
 sortAfter = set()
 
-
 output = ""
 
 
 def printSectionType(sectionName, depth, isFile):
     global output
     global newpageForSection
-    
+
     vspace = 0
     style = '\\bfseries\\sffamily\\centering'
     if depth == 1:
