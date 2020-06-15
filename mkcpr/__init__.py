@@ -34,6 +34,7 @@ TextToReplaceInTemplate = "CODE HERE"
 fontFamily = ""
 tableOfContentsEnabled = True
 clearDoublePage = False
+newpageForSection = False
 
 sortBefore = set()
 sortAfter = set()
@@ -44,9 +45,13 @@ output = ""
 
 def printSectionType(sectionName, depth, isFile):
     global output
+    global newpageForSection
+    
     vspace = 0
     style = '\\bfseries\\sffamily\\centering'
     if depth == 1:
+        if newpageForSection:
+            output += "\\newpage\n"
         sectionType = 'section'
         style += '\\Huge'
         vspace = 2
@@ -180,23 +185,25 @@ class ConfigProperties:
     fontFamily = "fontFamily"
     tableOfContents = "tableOfContents"
     clearDoublePage = "clearDoublePage"
+    newpageForSection = "newpageForSection"
 
 
 def outputConfigFile():
     path = getcwd()
     configJson = {ConfigProperties.codeFolder: join(path, "CodeFolderName"),
                   ConfigProperties.templatePath: join(path, "template.tex"),
-                  ConfigProperties.outputFilePath : join(path, "output.tex"),
-                  ConfigProperties.excluded : [".vscode", "__pycache__"],
-                  ConfigProperties.columns : 2,
-                  ConfigProperties.templatePlaceHolder : "CODE HERE",
-                  ConfigProperties.sortBefore : ["Data Structures"],
-                  ConfigProperties.sortAfter : ["Extras"],
-                  ConfigProperties.tableOfContents : True,
-                  ConfigProperties.titlePagePath : "",
-                  ConfigProperties.tableOfContents : True,
-                  ConfigProperties.fontFamily : "lmss"
-    }
+                  ConfigProperties.outputFilePath: join(path, "output.tex"),
+                  ConfigProperties.excluded: [".vscode", "__pycache__"],
+                  ConfigProperties.columns: 2,
+                  ConfigProperties.templatePlaceHolder: "CODE HERE",
+                  ConfigProperties.sortBefore: ["Data Structures"],
+                  ConfigProperties.sortAfter: ["Extras"],
+                  ConfigProperties.tableOfContents: True,
+                  ConfigProperties.titlePagePath: "",
+                  ConfigProperties.tableOfContents: True,
+                  ConfigProperties.fontFamily: "lmss",
+                  ConfigProperties.newpageForSection: False
+                  }
     with open('mkcpr-config.json', 'w') as f:
         json.dump(configJson, f, indent=4)
 
@@ -215,6 +222,7 @@ def main():
     global fontFamily
     global tableOfContentsEnabled
     global clearDoublePage
+    global newpageForSection
 
     codeFolder = "Reference"
     templatePath = "ReferenceTemplate.tex"
@@ -276,11 +284,17 @@ def main():
                 fontFamily = config[ConfigProperties.fontFamily]
             if ConfigProperties.clearDoublePage in config:
                 clearDoublePage = config[ConfigProperties.clearDoublePage]
+            if ConfigProperties.newpageForSection in config:
+                newpageForSection = config[ConfigProperties.newpageForSection]
+                if type(newpageForSection) is not bool:
+                    print(
+                        "Error in config: \"newpageForSection\" should be a boolean value (True or False)")
+                    exit(0)
             if ConfigProperties.tableOfContents in config:
                 tableOfContentsEnabled = config[ConfigProperties.tableOfContents]
                 if type(tableOfContentsEnabled) is not bool:
                     print(
-                        "Error in config: tableofcontents should be a boolean value (True or False)")
+                        "Error in config: \"tableofcontents\" should be a boolean value (True or False)")
                     exit(0)
     except FileNotFoundError:
         print("Error: Configuration file not found in \"" + configFilePath + "\"")

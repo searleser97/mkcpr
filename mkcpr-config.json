@@ -10,5 +10,6 @@
   "tableOfContents": true,
   "fontFamily" : "lmss",
   "titlePagePath" : "",
-  "clearDoublePage" : false
+  "clearDoublePage" : false,
+  "newpageForSection" : false
 }
