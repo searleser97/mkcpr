@@ -20,6 +20,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage[inline]{enumitem}
+\usepackage{fontspec}
 
 \geometry{letterpaper, portrait, left=0.5cm, right=0.5cm, top=1.8cm, bottom=1cm}
 
@@ -53,6 +54,18 @@
 % upper and lower padding
 \renewcommand{\arraystretch}{1.5} % Default value: 1
 
+\setmainfont{Montserrat}
+
+\newcommand{\fileTitleStyle}{\raggedright\underline}
+
+\sectionfont{\centering\bfseries\Huge}
+\subsectionfont{\centering\bfseries\LARGE}
+\subsubsectionfont{\centering\bfseries\Large}
+\paragraphfont{\centering\bfseries\large}
+
 \begin{document}
+\begin{multicols*}{2}
+    \tableofcontents
+\end{multicols*}
 CODE HERE
 \end{document}

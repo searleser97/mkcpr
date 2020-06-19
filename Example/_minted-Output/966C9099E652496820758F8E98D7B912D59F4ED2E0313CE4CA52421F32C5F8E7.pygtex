@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{struct} \PYG{n}{UnionFind} \PYG{p}{\PYGZob{}}
+  \PYG{k+kt}{int} \PYG{n}{n}\PYG{p}{;}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{dad}\PYG{p}{,} \PYG{n}{size}\PYG{p}{;}
+
+  \PYG{n}{UnionFind}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{N}\PYG{p}{)} \PYG{o}{:} \PYG{n}{n}\PYG{p}{(}\PYG{n}{N}\PYG{p}{),} \PYG{n}{dad}\PYG{p}{(}\PYG{n}{N}\PYG{p}{),} \PYG{n}{size}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{while} \PYG{p}{(}\PYG{n}{N}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)} \PYG{n}{dad}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]} \PYG{o}{=} \PYG{n}{N}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

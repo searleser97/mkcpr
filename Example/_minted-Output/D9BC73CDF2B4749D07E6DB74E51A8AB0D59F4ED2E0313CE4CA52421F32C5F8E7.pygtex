@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(E\PYGZca{}2 * V)}
+\PYG{n}{T} \PYG{n+nf}{maxFlowMinCut}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{s}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{t}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{T} \PYG{n}{maxFlow} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{dad}\PYG{p}{;}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{T} \PYG{n}{flow} \PYG{o}{=} \PYG{n}{bfs}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,} \PYG{n}{t}\PYG{p}{,} \PYG{n}{dad}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+    \PYG{n}{maxFlow} \PYG{o}{+=} \PYG{n}{flow}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{n}{t}\PYG{p}{;}
+    \PYG{k}{while} \PYG{p}{(}\PYG{n}{u} \PYG{o}{!=} \PYG{n}{s}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{cap}\PYG{p}{[}\PYG{n}{dad}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]][}\PYG{n}{u}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{flow}\PYG{p}{,} \PYG{n}{cap}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{dad}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]]} \PYG{o}{+=} \PYG{n}{flow}\PYG{p}{;}
+      \PYG{n}{u} \PYG{o}{=} \PYG{n}{dad}\PYG{p}{[}\PYG{n}{u}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{n}{maxFlow}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

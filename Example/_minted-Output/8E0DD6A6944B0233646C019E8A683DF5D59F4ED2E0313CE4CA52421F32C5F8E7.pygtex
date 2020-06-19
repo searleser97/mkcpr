@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(N)}
+\PYG{n}{T} \PYG{n+nf}{bfs}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{s}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{t}\PYG{p}{,} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}}\PYG{n}{dad}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{dad}\PYG{p}{.}\PYG{n}{assign}\PYG{p}{(}\PYG{n}{adj}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(),} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{);}
+  \PYG{n}{queue}\PYG{o}{\PYGZlt{}}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,} \PYG{n}{T}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{q}\PYG{p}{;}
+  \PYG{n}{dad}\PYG{p}{[}\PYG{n}{s}\PYG{p}{]} \PYG{o}{=} \PYG{n}{s}\PYG{p}{,} \PYG{n}{q}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{s}\PYG{p}{);}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{q}\PYG{p}{.}\PYG{n}{size}\PYG{p}{())} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{u} \PYG{o}{=} \PYG{n}{q}\PYG{p}{.}\PYG{n}{front}\PYG{p}{().}\PYG{n}{first}\PYG{p}{;}
+    \PYG{n}{T} \PYG{n}{pathMinCap} \PYG{o}{=} \PYG{n}{q}\PYG{p}{.}\PYG{n}{front}\PYG{p}{().}\PYG{n}{second}\PYG{p}{;}
+    \PYG{n}{q}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{dad}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{cap}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+        \PYG{n}{dad}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{n}{u}\PYG{p}{;}
+        \PYG{n}{T} \PYG{n}{flow} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{pathMinCap}\PYG{p}{,} \PYG{n}{cap}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{]);}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{v} \PYG{o}{==} \PYG{n}{t}\PYG{p}{)} \PYG{k}{return} \PYG{n}{flow}\PYG{p}{;}
+        \PYG{n}{q}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(\PYGZob{}}\PYG{n}{v}\PYG{p}{,} \PYG{n}{flow}\PYG{p}{\PYGZcb{});}
+      \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
