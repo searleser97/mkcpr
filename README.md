@@ -88,7 +88,7 @@ You can see an example of how a working directory would look like in a real *Com
 
 ## Future Updates
 
-- Display error when detecting the use of "titlesec", suggest secsty for title styles.
+- Display error when detecting the use of *titlesec*, suggest *secsty* for title styles.
 - Add space optimization option
 
 ## License
