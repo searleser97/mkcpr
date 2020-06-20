@@ -37,7 +37,7 @@ def printSectionType(sectionName, depth, isFile):
 
     vspace = 0
     if depth == 1:
-        if config.newpageForSectionIsEnabled:
+        if config.newpageForSectionIsEnabled():
             output += "\\newpage\n"
         sectionType = 'section'
         vspace = 2
