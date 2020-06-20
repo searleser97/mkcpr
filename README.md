@@ -14,33 +14,21 @@ This command will generate a LaTex formatted file, which will be ready to be com
 - In your working directory run:
 
 ```shell
-mkcpr [CONFIG FILE PATH]
+mkcpr [-c|-h]
 ```
-Note: ```[CONFIG FILE PATH]``` is an optional parameter with ```"mkcpr-config.json"``` as default value
+**Notes:**
+
+- The configuration file ```mkcpr-config.json``` should be in the same working directory. (Same path where you run ```mkcpr```).
+- ```-c``` flag creates a new configuration file ```mkcpr-config.json``` in the current directory.
+- ```-h``` displays help.
 
 ## Requirements
 
 - python 3.5+
 - Online or local LaTex compiler
 - Folder containing your codes for programming competitions
-- LaTex template (you can use the one provided in this repository ```template.tex```)
-- Configuration File (described below)
-
-
-## Configuration File Options
-
-```jsonc
-{
-  "codeFolder" : "Code Folder Path", // Path to your actual code for reference
-  "templatePath" : "template.tex", // LaTex template path
-  "outputFilePath" : "output.tex", // path where you want the LaTex code
-  "excluded" : [".vscode", "__pycache__"], // folders not to consider
-  "columns" : 2, // number of columns in your reference
-  "templatePlaceHolder" : "CODE HERE", // text to replace in your template
-  "sortBefore" : ["Data Structures"], // files or folders will appear first
-  "sortAfter" : ["Extras"] // file or folders will appear at the end
-}
-```
+- LaTex template (you can use the one provided in this repository ```Example/Template.tex```)
+- Configuration File ```mkcpr-config.json``` (described below)
 
 ## Installation
 
@@ -48,8 +36,26 @@ Note: ```[CONFIG FILE PATH]``` is an optional parameter with ```"mkcpr-config.js
   ```shell
     pip install mkcpr --user
   ```
-2. Copy the template and configuration files located in the root of this repository ```template.tex``` and ```mkcpr-config.json``` to your working directory
-3. Update ```mkcpr-config.json``` according to the [Configuration file options](#configuration-file-options) section.
+2. Copy the LaTex template ```Template.tex``` located in the ```Example``` folder of this repository to your working directory.
+3. In your working directory run ```mkcpr -c``` to create a new configuration file ```mkcpr-config.json```.
+4. Update ```mkcpr-config.json``` and ```Template.tex``` according to your needs. See the [Configuration file options](#configuration-file-options) section for reference.
+5. You are now ready to run ```mkcpr``` in your working directory.
+
+## Configuration File Options
+
+```jsonc
+{
+  "code_folder": "/home/san/Projects/mkcpr/Example/CodeFolder", // Path to your actual code for reference
+  "template_path": "/home/san/Projects/mkcpr/Example/Template.tex", // LaTex template path
+  "output_file_path": "/home/san/Projects/mkcpr/Example/Output.tex", // path where you want the generated LaTex code to be
+  "excluded": ["__pycache__", ".vscode"], // folders not to consider
+  "columns": 2, // number of columns in your reference
+  "template_placeholder": "CODE HERE", // text to replace in your template
+  "sort_before": ["Data Structures"], // files or folders will appear first
+  "sort_after": ["Extras"], // file or folders will appear at the end
+  "enable_newpage_for_section": false // if true each section will appear in a new page.
+}
+```
 
 ## Features
 
@@ -78,7 +84,12 @@ Note: ```[CONFIG FILE PATH]``` is an optional parameter with ```"mkcpr-config.js
 
 ## Example
 
-You can see an example of how a working directory would look like [HERE](https://github.com/searleser97/competitive-programming-reference)
+You can see an example of how a working directory would look like in a real *Competitive Progamming Reference* [HERE](https://github.com/searleser97/competitive-programming-reference)
+
+## Future Updates
+
+- Display error when detecting the use of "titlesec", suggest secsty for title styles.
+- Add space optimization option
 
 ## License
 

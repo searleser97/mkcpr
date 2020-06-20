@@ -21,7 +21,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
 import re
-import json
 import sys
 from mkcpr.Config import Config
 from mkcpr.Error import Error
@@ -50,9 +49,9 @@ def printSectionType(sectionName, depth, isFile):
     else:
         sectionType = 'paragraph'
         vspace = 1
-    
+
     style = config.titleStyles[sectionType]
-    if  style is not None:
+    if style is not None:
         output += '\\' + sectionType + "font{" + style + "}\n"
 
     if isFile:
@@ -156,12 +155,12 @@ def main():
 
     if sys.version_info[0] < 3:
         Error.throwUnsupportedPythonVersion()
-    elif (len(sys.argv) == 2 and sys.argv[1] == "-h"):
+    elif len(sys.argv) == 2 and sys.argv[1] == "-h":
         Util.displayHelp()
-    elif (len(sys.argv) == 2 and sys.argv[1] == "-c"):
+    elif len(sys.argv) == 2 and sys.argv[1] == "-c":
         config.write()
         exit(0)
-    
+
     config.read()
 
     if config.columns() >= 2:
@@ -169,10 +168,10 @@ def main():
 
     sections = []
     buildOutput(config.codeFolderPath(), 0, sections)
-    
-    if  config.columns() >= 2:
+
+    if config.columns() >= 2:
         output += "\\end{multicols*}\n"
-    
+
     with open(config.templatePath(), 'r') as f:
         template = f.read()
         output = template.replace(config.placeholder(), output)
