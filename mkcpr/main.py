@@ -50,21 +50,27 @@ def printSectionType(sectionName, depth, isFile):
     else:
         sectionType = 'paragraph'
         vspace = 1
+    
+    style = config.titleStyles[sectionType]
+    if  style is not None:
+        output += '\\' + sectionType + "font{" + style + "}\n"
+
     if isFile:
         sectionName = sectionName[:sectionName.rfind('.')]
         vspace = 0
-        output += '\\' + sectionType + 'font{\\fileTitleStyle}\n' # reset style
+        if config.titleStyles["file"] is not None:
+            output += '\\' + sectionType + "font{\\fileTitleStyle}\n"
 
+    if vspace > 0:
+        output += "\\vspace{" + str(vspace - 1) + "em}\n"
     sectionName = sectionName.replace("_", " ")
-    if vspace:
-        output += '\\vspace{' + str(vspace - 1) + 'em}\n'
-    output += '\\' + sectionType + '*{' + sectionName + '}\n'
+    output += '\\' + sectionType + "*{" + sectionName + "}\n"
     if depth == 1:
-        output += '\\markboth{' + sectionName.upper() + '}{}\n'
-    output += '\\addcontentsline{toc}{' + \
-        sectionType + '}{' + sectionName + '}\n'
-    if vspace:
-        output += '\\vspace{' + str(vspace + 1) + 'em}\n'
+        output += "\\markboth{" + sectionName.upper() + "}{}\n"
+    output += "\\addcontentsline{toc}{" + \
+        sectionType + "}{" + sectionName + "}\n"
+    if vspace > 0:
+        output += "\\vspace{" + str(vspace + 1) + "em}\n"
 
 
 def printFile(path, depth, sections):

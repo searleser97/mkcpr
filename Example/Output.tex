@@ -55,12 +55,13 @@
 \renewcommand{\arraystretch}{1.5} % Default value: 1
 
 \setmainfont{Montserrat}
-\newcommand{\fileTitleStyle}{\raggedleft\underline}
-\sectionfont{\raggedright\bfseries\Huge}
+
+\newcommand{\fileTitleStyle}{\large\raggedright\underline}
+
+\sectionfont{\centering\bfseries\Huge}
 \subsectionfont{\centering\bfseries\LARGE}
 \subsubsectionfont{\centering\bfseries\Large}
 \paragraphfont{\centering\bfseries\large}
-\subparagraphfont{\centering\bfseries\large}
 
 \begin{document}
 \begin{multicols*}{2}
@@ -69,15 +70,18 @@
 \begin{multicols*}{2}
 \needspace{16\baselineskip}
 \newpage
+\sectionfont{\centering\bfseries\Huge}
 \vspace{1em}
 \section*{Graphs}
 \markboth{GRAPHS}{}
 \addcontentsline{toc}{section}{Graphs}
 \vspace{3em}
+\subsectionfont{\centering\bfseries\LARGE}
 \vspace{0em}
 \subsection*{Data Structures}
 \addcontentsline{toc}{subsection}{Data Structures}
 \vspace{2em}
+\subsubsectionfont{\centering\bfseries\Large}
 \subsubsectionfont{\fileTitleStyle}
 \subsubsection*{Union Find}
 \addcontentsline{toc}{subsubsection}{Union Find}
@@ -129,6 +133,7 @@ struct UnionFind {
 \end{minted}
 
 \needspace{9\baselineskip}
+\subsectionfont{\centering\bfseries\LARGE}
 \subsectionfont{\fileTitleStyle}
 \subsection*{Articulation Points And Bridges}
 \addcontentsline{toc}{subsection}{Articulation Points And Bridges}
@@ -192,6 +197,7 @@ void APB() {
 \end{minted}
 
 \needspace{6\baselineskip}
+\subsectionfont{\centering\bfseries\LARGE}
 \subsectionfont{\fileTitleStyle}
 \subsection*{Topological Sort}
 \addcontentsline{toc}{subsection}{Topological Sort}
@@ -238,10 +244,12 @@ bool toposort() {
 \end{minted}
 
 \needspace{10\baselineskip}
+\subsectionfont{\centering\bfseries\LARGE}
 \vspace{0em}
 \subsection*{Flow}
 \addcontentsline{toc}{subsection}{Flow}
 \vspace{2em}
+\subsubsectionfont{\centering\bfseries\Large}
 \subsubsectionfont{\fileTitleStyle}
 \subsubsection*{Max Flow Min Cut Dinic}
 \addcontentsline{toc}{subsubsection}{Max Flow Min Cut Dinic}
@@ -335,6 +343,7 @@ T maxFlowMinCut(int s, int t) {
 \end{minted}
 
 \needspace{7\baselineskip}
+\subsubsectionfont{\centering\bfseries\Large}
 \subsubsectionfont{\fileTitleStyle}
 \subsubsection*{Max Flow Min Cut Edmonds-Karp}
 \addcontentsline{toc}{subsubsection}{Max Flow Min Cut Edmonds-Karp}
@@ -412,10 +421,12 @@ T maxFlowMinCut(int s, int t) {
 \end{minted}
 
 \needspace{11\baselineskip}
+\subsectionfont{\centering\bfseries\LARGE}
 \vspace{0em}
 \subsection*{Shortest Paths}
 \addcontentsline{toc}{subsection}{Shortest Paths}
 \vspace{2em}
+\subsubsectionfont{\centering\bfseries\Large}
 \subsubsectionfont{\fileTitleStyle}
 \subsubsection*{Dijkstra}
 \addcontentsline{toc}{subsubsection}{Dijkstra}
@@ -470,15 +481,18 @@ vector<T> dijkstra(int s) {
 
 \end{multicols*}
 \newpage
+\sectionfont{\centering\bfseries\Huge}
 \vspace{1em}
 \section*{Extras}
 \markboth{EXTRAS}{}
 \addcontentsline{toc}{section}{Extras}
 \vspace{3em}
+\subsectionfont{\centering\bfseries\LARGE}
 \vspace{0em}
 \subsection*{Maths}
 \addcontentsline{toc}{subsection}{Maths}
 \vspace{2em}
+\subsubsectionfont{\centering\bfseries\Large}
 \subsubsectionfont{\fileTitleStyle}
 \subsubsection*{Common Sums}
 \addcontentsline{toc}{subsubsection}{Common Sums}
@@ -531,6 +545,7 @@ vector<T> dijkstra(int s) {
 \vspace{1em}
 \begin{multicols*}{2}
 \end{multicols*}
+\subsubsectionfont{\centering\bfseries\Large}
 \subsubsectionfont{\fileTitleStyle}
 \subsubsection*{Logarithm Rules}
 \addcontentsline{toc}{subsubsection}{Logarithm Rules}

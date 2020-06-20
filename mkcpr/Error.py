@@ -59,3 +59,8 @@ class Error:
     def throwOutputFileIOError(path):
         print("Error: Could not write output file \"" + path + "\"")
         exit(0)
+
+    @staticmethod
+    def throwTemplateFileIOError(path):
+        print("Error: Could not read template file \"" + path + "\"")
+        exit(0)

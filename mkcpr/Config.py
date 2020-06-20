@@ -18,6 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
 import json
+import re
 from mkcpr.Error import Error
 
 
@@ -51,6 +52,13 @@ class Config:
             Config.EntryNameConstants.sortBefore: set([]),
             Config.EntryNameConstants.sortAfter: set([]),
             Config.EntryNameConstants.newpageForSectionIsEnabled: False
+        }
+        self.titleStyles = {
+            "section": None,
+            "subsection": None,
+            "subsubsection": None,
+            "paragraph": None,
+            "file": None
         }
 
     def write(self):
@@ -93,9 +101,33 @@ class Config:
 
         if not os.path.isdir(self.codeFolderPath()):
             Error.throwCodeFolderNotFound(self.codeFolderPath())
+        
+        self.readTitleStyles()
 
-        if not os.path.isfile(self.templatePath()):
+        
+
+    def readTitleStyles(self):
+        text = ""
+        try:
+            with open(self.templatePath()) as f:
+                text = f.read()
+        except (IsADirectoryError, FileNotFoundError):
             Error.throwTemplateFileNotFound(self.templatePath())
+        except IOError:
+            Error.throwTemplateFileIOError(self.templatePath())
+
+        extractStyleCommands = lambda text : text[text.rfind('{') + 1:text.rfind('}')].replace("\\\\", "\\")
+        
+        for style in re.findall("\\\\sectionfont{.*}", text):
+            self.titleStyles["section"] = extractStyleCommands(style)
+        for style in re.findall("\\\\subsectionfont{.*}", text):
+            self.titleStyles["subsection"] = extractStyleCommands(style)
+        for style in re.findall("\\\\subsubsectionfont{.*}", text):
+            self.titleStyles["subsubsection"] = extractStyleCommands(style)
+        for style in re.findall("\\\\paragraphfont{.*}", text):
+            self.titleStyles["paragraph"] = extractStyleCommands(style)
+        for style in re.findall("\\\\newcommand{\\\\fileTitleStyle}{.*}", text):
+            self.titleStyles["file"] = extractStyleCommands(style)
     
     def codeFolderPath(self):
         return self.properties[Config.EntryNameConstants.codeFolder]

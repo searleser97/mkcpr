@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{x}{  int getSize(int u) \PYGZob{} return size[root(u)]; \PYGZcb{}}
+
+\PYG{x}{  int numberOfSets() \PYGZob{} return n; \PYGZcb{}}
+\PYG{x}{\PYGZcb{};}
+\end{Verbatim}

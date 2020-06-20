@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{x}{// O(N)}
+\PYG{x}{void APB() \PYGZob{}}
+\PYG{x}{  br.clear();}
+\PYG{x}{  isAp = low = disc = vector\PYGZlt{}int\PYGZgt{}(adj.size());}
+\PYG{x}{  Time = 0;}
+\PYG{x}{  for (int u = 0; u \PYGZlt{} adj.size(); u++)}
+\PYG{x}{    if (!disc[u]) isAp[u] = dfsAPB(u, u) \PYGZgt{} 1;}
+\PYG{x}{\PYGZcb{}}
+\end{Verbatim}
