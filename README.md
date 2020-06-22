@@ -1,6 +1,6 @@
 
 
-# mkcpr
+# mkcpr &middot; [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/searleser97/mkcpr/blob/master/LICENSE) [![PyPI version fury.io](https://badge.fury.io/py/mkcpr.svg)](https://pypi.org/project/mkcpr/)
 
 ### Competitive Programming Reference Builder Tool
 
@@ -64,23 +64,38 @@ mkcpr [-c|-h]
 - support for most file extensions. (.cpp, .py, .java, .tex, .sh, ...)
 - Build your reference just from your competitive programming code folder.
 
-<div>
-  <img src="https://codeforces.com/predownloaded/43/53/4353216697913b06f2909ee25b7d7fe586133501.png"/>
-  <img src="https://codeforces.com/predownloaded/35/f5/35f510c1d145e2f3fb9fb147fcbf3febdff3ddf2.png"/>
-</div>
+<table>
+  <tr>
+    <th> Folder Structure </th>
+    <th> Table Of Contents </th>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://codeforces.com/predownloaded/43/53/4353216697913b06f2909ee25b7d7fe586133501.png"/>
+    </td>
+    <td>
+      <img src="https://codeforces.com/predownloaded/35/f5/35f510c1d145e2f3fb9fb147fcbf3febdff3ddf2.png"/>
+    </td>
+  </tr>
+</table>
 
 - Forget about undesired line breaks by specifying the lines of code you want together in the same page with a single comment before your lines of code.
 
-
-<div>
-  <div style="width: 100px; height: 10px; background: red;"></div>
-  <img src="https://codeforces.com/predownloaded/29/ea/29ea463f8ac652c6bb5fa20fc1c7690546479333.png"/>
-</div>
-
-<div>
-  <img src="https://codeforces.com/predownloaded/a1/4f/a14f0a93f62f3afb7d3519779c18d7e991948ed7.png" width="400" height="250"/>
-  <img src="https://codeforces.com/predownloaded/f6/1e/f61ec142697979d7ebb5b3ec715e2856ebc2faaf.png" width="400" height="250"/>
-</div>
+<table>
+  <tr>
+    <td colspan="2">
+      <img src="https://codeforces.com/predownloaded/29/ea/29ea463f8ac652c6bb5fa20fc1c7690546479333.png"/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://codeforces.com/predownloaded/a1/4f/a14f0a93f62f3afb7d3519779c18d7e991948ed7.png" width="400" height="250"/>
+    </td>
+    <td>
+      <img src="https://codeforces.com/predownloaded/f6/1e/f61ec142697979d7ebb5b3ec715e2856ebc2faaf.png" width="400" height="250"/>
+    </td>
+  </tr>
+</table>
 
 ## Example
 
@@ -93,4 +108,4 @@ You can see an example of how a working directory would look like in a real *Com
 
 ## License
 
-```mkcpr``` is licensed under the GNU General Public License v3.0
+```mkcpr``` is licensed under the [GNU General Public License v3.0](https://github.com/searleser97/mkcpr/blob/master/LICENSE)
