@@ -55,16 +55,20 @@
 \setmainfont{Montserrat}
 \setcounter{tocdepth}{5}
 
-\titleformat{\section}{\Huge\bfseries\centering}{\thesection}{1em}{#1}[\vspace{2em}]
-\titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
-\titleformat{\subsubsection}{\LARGE\bfseries\centering}{\thesubsubsection}{1em}{#1}
-\titleformat{\paragraph}{\Large\bfseries\centering}{\theparagraph}{1em}{#1}
-\titleformat{\subparagraph}{\large\bfseries\centering}{\thesubparagraph}{1em}{#1}
-\titleformat{\mkcprfile}{\normalsize\bfseries}{\themkcprfile}{1em}{\uline{#1}}
+% \titleformat{\section}{\Huge\bfseries\centering}{\thesection}{1em}{#1}[\vspace{2em}]
+% \titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
+% \titleformat{\subsubsection}{\LARGE\bfseries\centering}{\thesubsubsection}{1em}{#1}
+% \titleformat{\paragraph}{\Large\bfseries\centering}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}{\large\bfseries\centering}{\thesubparagraph}{1em}{#1}
+% \titleformat{\mkcprfile}{\normalsize\bfseries}{\themkcprfile}{1em}{\uline{#1}}
 
 \begin{document}
 \begin{multicols*}{2}
     \tableofcontents
 \end{multicols*}
-CODE HERE
+\titleformat{\section}{\huge\bfseries}{\thesection}{1em}{#1}
+\section{Section1}
+\titleformat{\section}{\centering}{\thesection}{1em}{\uline{#1}}
+\section{Section2}
+% CODE HERE
 \end{document}

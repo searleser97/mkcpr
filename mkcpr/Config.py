@@ -114,16 +114,7 @@ class Config:
         self.readStyles()
 
     def readStyles(self):
-        texCode = ""
-        try:
-            with open(self.templatePath()) as f:
-                for line in f.readlines():
-                    if line[0] != '%':
-                        texCode += line
-        except (IsADirectoryError, FileNotFoundError):
-            Error.throwTemplateFileNotFound(self.templatePath())
-        except IOError:
-            Error.throwTemplateFileIOError(self.templatePath())
+        texCode = Util.getTexCode(self.templatePath())
 
         line = re.findall(r"\\documentclass.*}", texCode)[0]
         self.documentClass = line[line.rfind('{') + 1:line.rfind('}')]

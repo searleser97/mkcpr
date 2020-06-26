@@ -15,6 +15,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 '''
+from mkcpr.Error import Error
 
 def needspaceForDepth(depth):
     if depth == 1:
@@ -39,3 +40,16 @@ def getRootLevelForDocumentClass(documentClass):
         return 1
     else:
         return 2
+
+def getTexCode(templatePath):
+    texCode = ""
+    try:
+        with open(templatePath) as f:
+            for line in f.readlines():
+                if line[0] != '%':
+                    texCode += line
+    except (IsADirectoryError, FileNotFoundError):
+        Error.throwTemplateFileNotFound(templatePath)
+    except IOError:
+        Error.throwTemplateFileIOError(templatePath)
+    return texCode

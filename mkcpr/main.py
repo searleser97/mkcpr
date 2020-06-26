@@ -153,9 +153,8 @@ def main():
     if config.columns() >= 2:
         output += "\\end{multicols*}\n"
 
-    with open(config.templatePath(), 'r') as f:
-        template = f.read()
-        output = template.replace(config.placeholder(), output)
+    template = Util.getTexCode(config.templatePath())
+    output = template.replace(config.placeholder(), output)
 
     try:
         with open(config.outputFilePath(), 'w+') as f:
