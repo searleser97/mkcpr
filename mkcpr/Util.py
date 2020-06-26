@@ -31,3 +31,11 @@ def displayHelp():
     print("Usage:")
     print("\tmkcpr [CONFIG FILE PATH]")
     exit(0)
+
+def getRootLevelForDocumentClass(documentClass):
+    if documentClass in ["book", "report"]:
+        return 0
+    elif documentClass == "memoir":
+        return 1
+    else:
+        return 2

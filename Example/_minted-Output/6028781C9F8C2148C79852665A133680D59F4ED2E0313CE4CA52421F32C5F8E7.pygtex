@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{c+c1}{// O(lg*(N))}
+  \PYG{k+kt}{int} \PYG{n+nf}{root}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{dad}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{==} \PYG{n}{u}\PYG{p}{)} \PYG{k}{return} \PYG{n}{u}\PYG{p}{;}
+    \PYG{k}{return} \PYG{n}{dad}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{root}\PYG{p}{(}\PYG{n}{dad}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]);}
+  \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

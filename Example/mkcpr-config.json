@@ -9,6 +9,5 @@
     "columns": 2,
     "template_placeholder": "CODE HERE",
     "sort_before": ["Data Structures"],
-    "sort_after": ["Extras"],
-    "enable_newpage_for_section": false
+    "sort_after": ["Extras"]
 }

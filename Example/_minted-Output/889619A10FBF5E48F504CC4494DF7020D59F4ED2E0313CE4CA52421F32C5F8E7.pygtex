@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{T} \PYG{n+nf}{blockingFlow}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{t}\PYG{p}{,} \PYG{n}{T} \PYG{n}{pathMinCap}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{u} \PYG{o}{==} \PYG{n}{t}\PYG{p}{)} \PYG{k}{return} \PYG{n}{pathMinCap}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n+nl}{v} \PYG{p}{:} \PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+    \PYG{n}{T} \PYG{n}{capLeft} \PYG{o}{=} \PYG{n}{cap}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{flow}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{];}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{level}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{==} \PYG{p}{(}\PYG{n}{level}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{capLeft} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{)}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{T} \PYG{n}{pathMaxFlow} \PYG{o}{=} \PYG{n}{blockingFlow}\PYG{p}{(}
+          \PYG{n}{v}\PYG{p}{,} \PYG{n}{t}\PYG{p}{,} \PYG{n}{min}\PYG{p}{(}\PYG{n}{pathMinCap}\PYG{p}{,} \PYG{n}{capLeft}\PYG{p}{)))} \PYG{p}{\PYGZob{}}
+        \PYG{n}{flow}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{v}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{pathMaxFlow}\PYG{p}{;}
+        \PYG{n}{flow}\PYG{p}{[}\PYG{n}{v}\PYG{p}{][}\PYG{n}{u}\PYG{p}{]} \PYG{o}{\PYGZhy{}=} \PYG{n}{pathMaxFlow}\PYG{p}{;}
+        \PYG{k}{return} \PYG{n}{pathMaxFlow}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

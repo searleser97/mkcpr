@@ -11,7 +11,6 @@
 \usepackage{listings}
 \usepackage{pdfpages}
 \usepackage{needspace}
-\usepackage{sectsty}
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{longtable}
@@ -21,11 +20,10 @@
 \usepackage{amsmath}
 \usepackage[inline]{enumitem}
 \usepackage{fontspec}
+\usepackage{ulem}
+\usepackage[explicit]{titlesec}
 
 \geometry{letterpaper, portrait, left=0.5cm, right=0.5cm, top=1.8cm, bottom=1cm}
-
-\sectionfont{\Huge\bfseries\sffamily}
-
 \setminted{
     style=tango,
     breaklines=true,
@@ -55,35 +53,37 @@
 \renewcommand{\arraystretch}{1.5} % Default value: 1
 
 \setmainfont{Montserrat}
+\setcounter{tocdepth}{5}
 
-\newcommand{\fileTitleStyle}{\large\raggedright\underline}
-
-\sectionfont{\centering\bfseries\Huge}
-\subsectionfont{\centering\bfseries\LARGE}
-\subsubsectionfont{\centering\bfseries\Large}
-\paragraphfont{\centering\bfseries\large}
+\titleformat{\section}{\Huge\bfseries\centering}{\thesection}{1em}{#1}[\vspace{2em}]
+\titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\LARGE\bfseries\centering}{\thesubsubsection}{1em}{#1}
+\titleformat{\paragraph}{\Large\bfseries\centering}{\theparagraph}{1em}{#1}
+\titleformat{\subparagraph}{\large\bfseries\centering}{\thesubparagraph}{1em}{#1}
+\titleformat{\mkcprfile}{\normalsize\bfseries}{\themkcprfile}{1em}{\uline{#1}}
 
 \begin{document}
 \begin{multicols*}{2}
     \tableofcontents
 \end{multicols*}
 \begin{multicols*}{2}
-\needspace{16\baselineskip}
-\sectionfont{\centering\bfseries\Huge}
-\vspace{1em}
+\needspace{13\baselineskip}
+{
+\titleformat{\section}{\Huge\bfseries\centering}{\thesection}{1em}{#1}[\vspace{2em}]
 \section*{Graphs}
 \markboth{GRAPHS}{}
 \addcontentsline{toc}{section}{Graphs}
-\vspace{3em}
-\subsectionfont{\centering\bfseries\LARGE}
-\vspace{0em}
+}
+{
+\titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
 \subsection*{Data Structures}
 \addcontentsline{toc}{subsection}{Data Structures}
-\vspace{2em}
-\subsubsectionfont{\centering\bfseries\Large}
-\subsubsectionfont{\fileTitleStyle}
+}
+{
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
 \subsubsection*{Union Find}
 \addcontentsline{toc}{subsubsection}{Union Find}
+}
 \begin{minted}{cpp}
 struct UnionFind {
   int n;
@@ -131,11 +131,12 @@ struct UnionFind {
 };
 \end{minted}
 
-\needspace{9\baselineskip}
-\subsectionfont{\centering\bfseries\LARGE}
-\subsectionfont{\fileTitleStyle}
+\needspace{8\baselineskip}
+{
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{\uline{#1}}
 \subsection*{Articulation Points And Bridges}
 \addcontentsline{toc}{subsection}{Articulation Points And Bridges}
+}
 \begin{minted}{cpp}
 // APB = articulation points and bridges
 // Ap = Articulation Point
@@ -195,11 +196,12 @@ void APB() {
 }
 \end{minted}
 
-\needspace{6\baselineskip}
-\subsectionfont{\centering\bfseries\LARGE}
-\subsectionfont{\fileTitleStyle}
+\needspace{5\baselineskip}
+{
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{\uline{#1}}
 \subsection*{Topological Sort}
 \addcontentsline{toc}{subsection}{Topological Sort}
+}
 \begin{minted}{cpp}
 // vis = visited
 vector<vector<int>> adj;
@@ -242,16 +244,17 @@ bool toposort() {
 }
 \end{minted}
 
-\needspace{10\baselineskip}
-\subsectionfont{\centering\bfseries\LARGE}
-\vspace{0em}
+\needspace{8\baselineskip}
+{
+\titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
 \subsection*{Flow}
 \addcontentsline{toc}{subsection}{Flow}
-\vspace{2em}
-\subsubsectionfont{\centering\bfseries\Large}
-\subsubsectionfont{\fileTitleStyle}
+}
+{
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
 \subsubsection*{Max Flow Min Cut Dinic}
 \addcontentsline{toc}{subsubsection}{Max Flow Min Cut Dinic}
+}
 \begin{minted}{cpp}
 // cap[a][b] = Capacity from a to b
 // flow[a][b] = flow occupied from a to b
@@ -341,11 +344,12 @@ T maxFlowMinCut(int s, int t) {
 }
 \end{minted}
 
-\needspace{7\baselineskip}
-\subsubsectionfont{\centering\bfseries\Large}
-\subsubsectionfont{\fileTitleStyle}
+\needspace{6\baselineskip}
+{
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
 \subsubsection*{Max Flow Min Cut Edmonds-Karp}
 \addcontentsline{toc}{subsubsection}{Max Flow Min Cut Edmonds-Karp}
+}
 \begin{minted}{cpp}
 // cap[a][b] = Capacity left from a to b
 // iflow = initial flow, icap = initial capacity
@@ -419,16 +423,17 @@ T maxFlowMinCut(int s, int t) {
 }
 \end{minted}
 
-\needspace{11\baselineskip}
-\subsectionfont{\centering\bfseries\LARGE}
-\vspace{0em}
+\needspace{9\baselineskip}
+{
+\titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
 \subsection*{Shortest Paths}
 \addcontentsline{toc}{subsection}{Shortest Paths}
-\vspace{2em}
-\subsubsectionfont{\centering\bfseries\Large}
-\subsubsectionfont{\fileTitleStyle}
+}
+{
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
 \subsubsection*{Dijkstra}
 \addcontentsline{toc}{subsubsection}{Dijkstra}
+}
 \begin{minted}{cpp}
 // s = source
 typedef int T;
@@ -479,23 +484,23 @@ vector<T> dijkstra(int s) {
 \end{minted}
 
 \end{multicols*}
-\sectionfont{\centering\bfseries\Huge}
-\vspace{1em}
+{
+\titleformat{\section}{\Huge\bfseries\centering}{\thesection}{1em}{#1}[\vspace{2em}]
 \section*{Extras}
 \markboth{EXTRAS}{}
 \addcontentsline{toc}{section}{Extras}
-\vspace{3em}
-\subsectionfont{\centering\bfseries\LARGE}
-\vspace{0em}
+}
+{
+\titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
 \subsection*{Maths}
 \addcontentsline{toc}{subsection}{Maths}
-\vspace{2em}
-\subsubsectionfont{\centering\bfseries\Large}
-\subsubsectionfont{\fileTitleStyle}
+}
+{
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
 \subsubsection*{Common Sums}
 \addcontentsline{toc}{subsubsection}{Common Sums}
+}
 \vspace{1em}
-\sffamily
 \bgroup
 \def\arraystretch{3}
 {\normalsize
@@ -543,12 +548,12 @@ vector<T> dijkstra(int s) {
 \vspace{1em}
 \begin{multicols*}{2}
 \end{multicols*}
-\subsubsectionfont{\centering\bfseries\Large}
-\subsubsectionfont{\fileTitleStyle}
+{
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
 \subsubsection*{Logarithm Rules}
 \addcontentsline{toc}{subsubsection}{Logarithm Rules}
+}
 \vspace{1em}
-\sffamily
 \bgroup
 \def\arraystretch{2}
 {\normalsize

@@ -19,7 +19,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import os
 import json
 import re
+from typing import List
 from mkcpr.Error import Error
+from mkcpr import Util
 
 
 class Config:
@@ -33,12 +35,24 @@ class Config:
         templatePlaceHolder = "template_placeholder"
         sortBefore = "sort_before"
         sortAfter = "sort_after"
-        newpageForSectionIsEnabled = "enable_newpage_for_section"
 
     defaultConfigFilename = "mkcpr-config.json"
 
     mandatoryEntries = [EntryNameConstants.codeFolder,
                         EntryNameConstants.templatePath]
+
+    fileSectionName = "mkcprfile"
+
+    sortedSectionNames: List[str] = [
+        "part",
+        "chapter",
+        "section",
+        "subsection",
+        "subsubsection",
+        "paragraph",
+        "subparagraph",
+        fileSectionName
+    ]
 
     def __init__(self):
         path = os.getcwd()
@@ -50,16 +64,11 @@ class Config:
             Config.EntryNameConstants.columns: 2,
             Config.EntryNameConstants.templatePlaceHolder: "CODE HERE",
             Config.EntryNameConstants.sortBefore: set([]),
-            Config.EntryNameConstants.sortAfter: set([]),
-            Config.EntryNameConstants.newpageForSectionIsEnabled: False
+            Config.EntryNameConstants.sortAfter: set([])
         }
-        self.titleStyles = {
-            "section": None,
-            "subsection": None,
-            "subsubsection": None,
-            "paragraph": None,
-            "file": None
-        }
+
+        self.documentClass = "article"
+        self.titleStyles = [""] * len(Config.sortedSectionNames)
 
     def write(self):
         path = os.path.join(os.getcwd(), Config.defaultConfigFilename)
@@ -101,34 +110,29 @@ class Config:
 
         if not os.path.isdir(self.codeFolderPath()):
             Error.throwCodeFolderNotFound(self.codeFolderPath())
-        
-        self.readTitleStyles()
 
-        
+        self.readStyles()
 
-    def readTitleStyles(self):
-        text = ""
+    def readStyles(self):
+        texCode = ""
         try:
             with open(self.templatePath()) as f:
-                text = f.read()
+                for line in f.readlines():
+                    if line[0] != '%':
+                        texCode += line
         except (IsADirectoryError, FileNotFoundError):
             Error.throwTemplateFileNotFound(self.templatePath())
         except IOError:
             Error.throwTemplateFileIOError(self.templatePath())
 
-        extractStyleCommands = lambda text : text[text.rfind('{') + 1:text.rfind('}')].replace("\\\\", "\\")
-        
-        for style in re.findall("\\\\sectionfont{.*}", text):
-            self.titleStyles["section"] = extractStyleCommands(style)
-        for style in re.findall("\\\\subsectionfont{.*}", text):
-            self.titleStyles["subsection"] = extractStyleCommands(style)
-        for style in re.findall("\\\\subsubsectionfont{.*}", text):
-            self.titleStyles["subsubsection"] = extractStyleCommands(style)
-        for style in re.findall("\\\\paragraphfont{.*}", text):
-            self.titleStyles["paragraph"] = extractStyleCommands(style)
-        for style in re.findall("\\\\newcommand{\\\\fileTitleStyle}{.*}", text):
-            self.titleStyles["file"] = extractStyleCommands(style)
-    
+        line = re.findall(r"\\documentclass.*}", texCode)[0]
+        self.documentClass = line[line.rfind('{') + 1:line.rfind('}')]
+
+        for i, sectionName in enumerate(Config.sortedSectionNames):
+            regex = r"\\titleformat{\s*\\" + sectionName + r"\s*}.*[}\]]"
+            for style in re.findall(regex, texCode):
+                self.titleStyles[i] = style
+
     def codeFolderPath(self):
         return self.properties[Config.EntryNameConstants.codeFolder]
 
@@ -149,10 +153,17 @@ class Config:
 
     def sortBefore(self):
         return self.properties[Config.EntryNameConstants.sortBefore]
-    
+
     def sortAfter(self):
         return self.properties[Config.EntryNameConstants.sortAfter]
 
-    def newpageForSectionIsEnabled(self):
-        return self.properties[Config.EntryNameConstants.newpageForSectionIsEnabled]
+    def sectionTypeForDepth(self, depth):
+        return Config.sortedSectionNames[min(depth, len(Config.sortedSectionNames) - 2)]
 
+    def getTitleStyle(self, depth, isFile):
+        if isFile and len(self.titleStyles[-1]) > 0:
+            return self.titleStyles[-1].replace(Config.fileSectionName, self.sectionTypeForDepth(depth))
+        return self.titleStyles[min(depth, len(self.titleStyles) - 2)]
+
+    def rootLevel(self):
+        return Util.getRootLevelForDocumentClass(self.documentClass)

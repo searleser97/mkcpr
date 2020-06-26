@@ -34,43 +34,24 @@ def printSectionType(sectionName, depth, isFile):
     global output
     global config
 
-    vspace = 0
-    if depth == 1:
-        if config.newpageForSectionIsEnabled():
-            output += "\\newpage\n"
-        sectionType = 'section'
-        vspace = 2
-    elif depth == 2:
-        sectionType = 'subsection'
-        vspace = 1
-    elif depth == 3:
-        sectionType = 'subsubsection'
-        vspace = 1
-    else:
-        sectionType = 'paragraph'
-        vspace = 1
+    style = config.getTitleStyle(depth, isFile)
+    sectionType = config.sectionTypeForDepth(depth)
 
-    style = config.titleStyles[sectionType]
-    if style is not None:
-        output += '\\' + sectionType + "font{" + style + "}\n"
+    if len(style) > 0:
+        output += "{\n" + style + "\n"
 
     if isFile:
         sectionName = sectionName[:sectionName.rfind('.')]
-        vspace = 0
-        if config.titleStyles["file"] is not None:
-            output += '\\' + sectionType + "font{\\fileTitleStyle}\n"
 
-    if vspace > 0:
-        output += "\\vspace{" + str(vspace - 1) + "em}\n"
     sectionName = sectionName.replace("_", " ")
     output += '\\' + sectionType + "*{" + sectionName + "}\n"
-    if depth == 1:
+    if depth == config.rootLevel():
         output += "\\markboth{" + sectionName.upper() + "}{}\n"
-    output += "\\addcontentsline{toc}{" + \
-        sectionType + "}{" + sectionName + "}\n"
-    if vspace > 0:
-        output += "\\vspace{" + str(vspace + 1) + "em}\n"
+    output += "\\addcontentsline{toc}{" + sectionType + "}{" + sectionName + "}\n"
 
+    if len(style) > 0:
+        output += "}\n"
+    
 
 def printFile(path, depth, sections):
     global output
@@ -167,7 +148,7 @@ def main():
         output += "\\begin{multicols*}{" + str(config.columns()) + "}\n"
 
     sections = []
-    buildOutput(config.codeFolderPath(), 0, sections)
+    buildOutput(config.codeFolderPath(), config.rootLevel() - 1, sections)
 
     if config.columns() >= 2:
         output += "\\end{multicols*}\n"

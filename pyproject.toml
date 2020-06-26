@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mkcpr"
-version = "1.0.9"
+version = "1.1.0"
 description = "mkcpr is a command line utility that helps you to build your Competitive Programming Reference in PDF."
 authors = ["searleser97 <serchgabriel97@gmail.com>"]
 license = "AGPL-3.0-only"

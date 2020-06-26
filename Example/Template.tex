@@ -11,7 +11,6 @@
 \usepackage{listings}
 \usepackage{pdfpages}
 \usepackage{needspace}
-\usepackage{sectsty}
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{longtable}
@@ -21,11 +20,10 @@
 \usepackage{amsmath}
 \usepackage[inline]{enumitem}
 \usepackage{fontspec}
+\usepackage{ulem}
+\usepackage[explicit]{titlesec}
 
 \geometry{letterpaper, portrait, left=0.5cm, right=0.5cm, top=1.8cm, bottom=1cm}
-
-\sectionfont{\Huge\bfseries\sffamily}
-
 \setminted{
     style=tango,
     breaklines=true,
@@ -55,13 +53,14 @@
 \renewcommand{\arraystretch}{1.5} % Default value: 1
 
 \setmainfont{Montserrat}
+\setcounter{tocdepth}{5}
 
-\newcommand{\fileTitleStyle}{\large\raggedright\underline}
-
-\sectionfont{\centering\bfseries\Huge}
-\subsectionfont{\centering\bfseries\LARGE}
-\subsubsectionfont{\centering\bfseries\Large}
-\paragraphfont{\centering\bfseries\large}
+\titleformat{\section}{\Huge\bfseries\centering}{\thesection}{1em}{#1}[\vspace{2em}]
+\titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\LARGE\bfseries\centering}{\thesubsubsection}{1em}{#1}
+\titleformat{\paragraph}{\Large\bfseries\centering}{\theparagraph}{1em}{#1}
+\titleformat{\subparagraph}{\large\bfseries\centering}{\thesubparagraph}{1em}{#1}
+\titleformat{\mkcprfile}{\normalsize\bfseries}{\themkcprfile}{1em}{\uline{#1}}
 
 \begin{document}
 \begin{multicols*}{2}

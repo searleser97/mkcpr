@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k+kt}{int} \PYG{n+nf}{getSize}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{k}{return} \PYG{n}{size}\PYG{p}{[}\PYG{n}{root}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)];} \PYG{p}{\PYGZcb{}}
+
+  \PYG{k+kt}{int} \PYG{n+nf}{numberOfSets}\PYG{p}{()} \PYG{p}{\PYGZob{}} \PYG{k}{return} \PYG{n}{n}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

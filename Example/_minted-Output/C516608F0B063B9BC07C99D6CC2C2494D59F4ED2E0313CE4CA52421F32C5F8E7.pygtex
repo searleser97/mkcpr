@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// O(E * V\PYGZca{}2)}
+\PYG{n}{T} \PYG{n+nf}{maxFlowMinCut}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{s}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{t}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{s} \PYG{o}{==} \PYG{n}{t}\PYG{p}{)} \PYG{k}{return} \PYG{n}{inf}\PYG{p}{;}
+  \PYG{n}{T} \PYG{n}{maxFlow} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{k}{while} \PYG{p}{(}\PYG{n}{levelGraph}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,} \PYG{n}{t}\PYG{p}{))}
+    \PYG{k}{while} \PYG{p}{(}\PYG{n}{T} \PYG{n}{flow} \PYG{o}{=} \PYG{n}{blockingFlow}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,} \PYG{n}{t}\PYG{p}{,} \PYG{n}{inf}\PYG{p}{))}
+      \PYG{n}{maxFlow} \PYG{o}{+=} \PYG{n}{flow}\PYG{p}{;}
+  \PYG{k}{return} \PYG{n}{maxFlow}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
