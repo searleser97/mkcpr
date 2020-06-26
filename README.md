@@ -53,7 +53,6 @@ mkcpr [-c|-h]
   "template_placeholder": "CODE HERE", // text to replace in your template
   "sort_before": ["Data Structures"], // files or folders will appear first
   "sort_after": ["Extras"], // file or folders will appear at the end
-  "enable_newpage_for_section": false // if true each section will appear in a new page.
 }
 ```
 
@@ -100,11 +99,6 @@ mkcpr [-c|-h]
 ## Example
 
 You can see an example of how a working directory would look like in a real *Competitive Progamming Reference* [HERE](https://github.com/searleser97/competitive-programming-reference)
-
-## Future Updates
-
-- Display error when detecting the use of *titlesec*, suggest *secsty* for title styles.
-- Add space optimization option
 
 ## License
 
