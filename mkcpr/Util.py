@@ -53,3 +53,22 @@ def getTexCode(templatePath):
     except IOError:
         Error.throwTemplateFileIOError(templatePath)
     return texCode
+
+fontSizeCommands = [
+    "\\Huge",
+    "\\huge",
+    "\\LARGE",
+    "\\Large",
+    "\\large",
+    "\\normalsize",
+    "\\small",
+    "\\footnotesize",
+    "\\scriptsize",
+    "\\tiny"
+]
+
+def getFontSizeFromCommand(commandString: str):
+    for fontsize in fontSizeCommands:
+        if fontsize in commandString:
+            return fontsize
+    return None

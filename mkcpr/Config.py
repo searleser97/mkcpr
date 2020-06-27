@@ -38,8 +38,7 @@ class Config:
 
     defaultConfigFilename = "mkcpr-config.json"
 
-    mandatoryEntries = [EntryNameConstants.codeFolder,
-                        EntryNameConstants.templatePath]
+    mandatoryEntries = [EntryNameConstants.codeFolder, EntryNameConstants.templatePath]
 
     fileSectionName = "mkcprfile"
 
@@ -52,6 +51,16 @@ class Config:
         "paragraph",
         "subparagraph",
         fileSectionName
+    ]
+
+    defaultFontSizeForDepth: List[str] = [
+        "\\Huge",
+        "\\huge",
+        "\\Large",
+        "\\large",
+        "\\normalsize",
+        "\\normalsize",
+        "\\normalsize"
     ]
 
     def __init__(self):
@@ -147,14 +156,27 @@ class Config:
 
     def sortAfter(self):
         return self.properties[Config.EntryNameConstants.sortAfter]
+    
+    def rootLevel(self):
+        return Util.getRootLevelForDocumentClass(self.documentClass)
 
     def sectionTypeForDepth(self, depth):
         return Config.sortedSectionNames[min(depth, len(Config.sortedSectionNames) - 2)]
 
-    def getTitleStyle(self, depth, isFile):
-        if isFile and len(self.titleStyles[-1]) > 0:
-            return self.titleStyles[-1].replace(Config.fileSectionName, self.sectionTypeForDepth(depth))
+    def getTitleStyleForDepth(self, depth):
         return self.titleStyles[min(depth, len(self.titleStyles) - 2)]
 
-    def rootLevel(self):
-        return Util.getRootLevelForDocumentClass(self.documentClass)
+    def getTitleStyle(self, depth, isFile):
+        if not isFile or len(self.titleStyles[-1]) == 0:
+            return self.titleStyles[min(depth, len(self.titleStyles) - 2)]
+
+        styleCommand = self.titleStyles[-1].replace(Config.fileSectionName, self.sectionTypeForDepth(depth))
+        if Util.getFontSizeFromCommand(styleCommand) is not None:
+            return styleCommand
+        else:
+            fontsize = Util.getFontSizeFromCommand(self.getTitleStyleForDepth(depth))
+            if not fontsize:
+                fontsize = Config.defaultFontSizeForDepth[depth]
+            auxList = styleCommand.split("}")
+            auxList[1] += fontsize
+            return '}'.join(auxList)
