@@ -44,6 +44,7 @@ def printSectionType(sectionName, depth, isFile):
         sectionName = sectionName[:sectionName.rfind('.')]
 
     sectionName = sectionName.replace("_", " ")
+    output += "\\phantomsection"
     output += '\\' + sectionType + "*{" + sectionName + "}\n"
     if depth == config.rootLevel():
         output += "\\markboth{" + sectionName.upper() + "}{}\n"
