@@ -100,10 +100,6 @@ mkcpr [-c|-h]
 
 You can see an example of how a working directory would look like in a real *Competitive Progamming Reference* [HERE](https://github.com/searleser97/competitive-programming-reference)
 
-## Future Updates
-
-- Inherit style of section to file style
-
 ## License
 
 ```mkcpr``` is licensed under the [GNU General Public License v3.0](https://github.com/searleser97/mkcpr/blob/master/LICENSE)
