@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{// cap[a][b] = Capacity left from a to b}
-\PYG{c+c1}{// iflow = initial flow, icap = initial capacity}
-\PYG{c+c1}{// pathMinCap = capacity bottleneck for a path (s\PYGZhy{}\PYGZgt{}t)}
-\end{Verbatim}
