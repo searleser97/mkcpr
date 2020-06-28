@@ -67,17 +67,20 @@
 \needspace{13\baselineskip}
 {
 \titleformat{\section}{\Huge\bfseries\centering}{\thesection}{1em}{#1}[\vspace{2em}]
+\phantomsection
 \section*{Graphs}
 \markboth{GRAPHS}{}
 \addcontentsline{toc}{section}{Graphs}
 }
 {
 \titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
+\phantomsection
 \subsection*{Data Structures}
 \addcontentsline{toc}{subsection}{Data Structures}
 }
 {
 \titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
+\phantomsection
 \subsubsection*{Union Find}
 \addcontentsline{toc}{subsubsection}{Union Find}
 }
@@ -131,6 +134,7 @@ struct UnionFind {
 \needspace{8\baselineskip}
 {
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{\uline{#1}}
+\phantomsection
 \subsection*{Articulation Points And Bridges}
 \addcontentsline{toc}{subsection}{Articulation Points And Bridges}
 }
@@ -196,6 +200,7 @@ void APB() {
 \needspace{5\baselineskip}
 {
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{\uline{#1}}
+\phantomsection
 \subsection*{Topological Sort}
 \addcontentsline{toc}{subsection}{Topological Sort}
 }
@@ -244,11 +249,93 @@ bool toposort() {
 \needspace{8\baselineskip}
 {
 \titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
+\phantomsection
 \subsection*{Flow}
 \addcontentsline{toc}{subsection}{Flow}
 }
 {
 \titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
+\phantomsection
+\subsubsection*{Max Flow Min Cut Edmonds-Karp}
+\addcontentsline{toc}{subsubsection}{Max Flow Min Cut Edmonds-Karp}
+}
+\begin{minted}{cpp}
+// cap[a][b] = Capacity left from a to b
+// iflow = initial flow, icap = initial capacity
+// pathMinCap = capacity bottleneck for a path (s->t)
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+typedef int T;
+vector<int> level;
+vector<vector<int>> adj, cap;
+T inf = 1 << 30;
+\end{minted}
+\vspace{-12pt}
+\needspace{4\baselineskip}
+\begin{minted}{cpp}
+void init(int N) {
+  adj.assign(N, vector<int>());
+  cap.assign(N, vector<int>(N));
+}
+\end{minted}
+\vspace{-12pt}
+\needspace{6\baselineskip}
+\begin{minted}{cpp}
+void addEdge(int u, int v, T icap, T iflow = 0) {
+  if (!cap[u][v])
+    adj[u].push_back(v), adj[v].push_back(u);
+  cap[u][v] = icap - iflow;
+  // cap[v][u] = cap[u][v]; // if graph is undirected
+}
+\end{minted}
+\vspace{-12pt}
+\needspace{19\baselineskip}
+\begin{minted}{cpp}
+// O(N)
+T bfs(int s, int t, vector<int> &dad) {
+  dad.assign(adj.size(), -1);
+  queue<pair<int, T>> q;
+  dad[s] = s, q.push(s);
+  while (q.size()) {
+    int u = q.front().first;
+    T pathMinCap = q.front().second;
+    q.pop();
+    for (int v : adj[u])
+      if (dad[v] == -1 && cap[u][v]) {
+        dad[v] = u;
+        T flow = min(pathMinCap, cap[u][v]);
+        if (v == t) return flow;
+        q.push({v, flow});
+      }
+  }
+  return 0;
+}
+\end{minted}
+\vspace{-12pt}
+\needspace{14\baselineskip}
+\begin{minted}{cpp}
+// O(E^2 * V)
+T maxFlowMinCut(int s, int t) {
+  T maxFlow = 0;
+  vector<int> dad;
+  while (T flow = bfs(s, t, dad)) {
+    maxFlow += flow;
+    int u = t;
+    while (u != s) {
+      cap[dad[u]][u] -= flow, cap[u][dad[u]] += flow;
+      u = dad[u];
+    }
+  }
+  return maxFlow;
+}
+\end{minted}
+
+\needspace{6\baselineskip}
+{
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
+\phantomsection
 \subsubsection*{Max Flow Min Cut Dinic}
 \addcontentsline{toc}{subsubsection}{Max Flow Min Cut Dinic}
 }
@@ -341,93 +428,16 @@ T maxFlowMinCut(int s, int t) {
 }
 \end{minted}
 
-\needspace{6\baselineskip}
-{
-\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
-\subsubsection*{Max Flow Min Cut Edmonds-Karp}
-\addcontentsline{toc}{subsubsection}{Max Flow Min Cut Edmonds-Karp}
-}
-\begin{minted}{cpp}
-// cap[a][b] = Capacity left from a to b
-// iflow = initial flow, icap = initial capacity
-// pathMinCap = capacity bottleneck for a path (s->t)
-\end{minted}
-\vspace{-12pt}
-\needspace{4\baselineskip}
-\begin{minted}{cpp}
-typedef int T;
-vector<int> level;
-vector<vector<int>> adj, cap;
-T inf = 1 << 30;
-\end{minted}
-\vspace{-12pt}
-\needspace{4\baselineskip}
-\begin{minted}{cpp}
-void init(int N) {
-  adj.assign(N, vector<int>());
-  cap.assign(N, vector<int>(N));
-}
-\end{minted}
-\vspace{-12pt}
-\needspace{6\baselineskip}
-\begin{minted}{cpp}
-void addEdge(int u, int v, T icap, T iflow = 0) {
-  if (!cap[u][v])
-    adj[u].push_back(v), adj[v].push_back(u);
-  cap[u][v] = icap - iflow;
-  // cap[v][u] = cap[u][v]; // if graph is undirected
-}
-\end{minted}
-\vspace{-12pt}
-\needspace{19\baselineskip}
-\begin{minted}{cpp}
-// O(N)
-T bfs(int s, int t, vector<int> &dad) {
-  dad.assign(adj.size(), -1);
-  queue<pair<int, T>> q;
-  dad[s] = s, q.push(s);
-  while (q.size()) {
-    int u = q.front().first;
-    T pathMinCap = q.front().second;
-    q.pop();
-    for (int v : adj[u])
-      if (dad[v] == -1 && cap[u][v]) {
-        dad[v] = u;
-        T flow = min(pathMinCap, cap[u][v]);
-        if (v == t) return flow;
-        q.push({v, flow});
-      }
-  }
-  return 0;
-}
-\end{minted}
-\vspace{-12pt}
-\needspace{14\baselineskip}
-\begin{minted}{cpp}
-// O(E^2 * V)
-T maxFlowMinCut(int s, int t) {
-  T maxFlow = 0;
-  vector<int> dad;
-  while (T flow = bfs(s, t, dad)) {
-    maxFlow += flow;
-    int u = t;
-    while (u != s) {
-      cap[dad[u]][u] -= flow, cap[u][dad[u]] += flow;
-      u = dad[u];
-    }
-  }
-  return maxFlow;
-}
-\end{minted}
-
 \needspace{9\baselineskip}
 {
 \titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
+\phantomsection
 \subsection*{Shortest Paths}
 \addcontentsline{toc}{subsection}{Shortest Paths}
 }
 {
 \titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
+\phantomsection
 \subsubsection*{Dijkstra}
 \addcontentsline{toc}{subsubsection}{Dijkstra}
 }
@@ -483,17 +493,20 @@ vector<T> dijkstra(int s) {
 \end{multicols*}
 {
 \titleformat{\section}{\Huge\bfseries\centering}{\thesection}{1em}{#1}[\vspace{2em}]
+\phantomsection
 \section*{Extras}
 \markboth{EXTRAS}{}
 \addcontentsline{toc}{section}{Extras}
 }
 {
 \titleformat{\subsection}{\huge\bfseries\centering}{\thesubsection}{1em}{#1}
+\phantomsection
 \subsection*{Maths}
 \addcontentsline{toc}{subsection}{Maths}
 }
 {
 \titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
+\phantomsection
 \subsubsection*{Common Sums}
 \addcontentsline{toc}{subsubsection}{Common Sums}
 }
@@ -547,6 +560,7 @@ vector<T> dijkstra(int s) {
 \end{multicols*}
 {
 \titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{\uline{#1}}
+\phantomsection
 \subsubsection*{Logarithm Rules}
 \addcontentsline{toc}{subsubsection}{Logarithm Rules}
 }

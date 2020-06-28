@@ -37,22 +37,25 @@ def printSectionType(sectionName, depth, isFile):
     style = config.getTitleStyle(depth, isFile)
     sectionType = config.sectionTypeForDepth(depth)
 
+    output += "{\n"
+
     if len(style) > 0:
-        output += "{\n" + style + "\n"
+        output += style + "\n"
 
     if isFile:
         sectionName = sectionName[:sectionName.rfind('.')]
 
     sectionName = sectionName.replace("_", " ")
-    output += "\\phantomsection"
+    output += "\\phantomsection\n"
     output += '\\' + sectionType + "*{" + sectionName + "}\n"
     if depth == config.rootLevel():
         output += "\\markboth{" + sectionName.upper() + "}{}\n"
-    output += "\\addcontentsline{toc}{" + sectionType + "}{" + sectionName + "}\n"
 
-    if len(style) > 0:
-        output += "}\n"
-    
+    if not (depth == 0 and len(style) > 0):
+        output += "\\addcontentsline{toc}{" + sectionType + "}{" + sectionName + "}\n"
+
+    output += "}\n"
+
 
 def printFile(path, depth, sections):
     global output
@@ -103,15 +106,23 @@ def buildOutput(currPath, depth, sections):
 
     if len(sections) and sections[-1] in config.excluded():
         return
-    sortedDirs = sorted(
-        os.listdir(currPath),
-        key=lambda x: (
-            x in config.sortAfter(),
-            x not in config.sortBefore(),
-            os.path.isdir(os.path.join(currPath, x)),
-            x.split('.')[0].lower()
+    sortedDirs = []
+    orderFilePath = os.path.join(currPath, Config.orderFileName)
+    if os.path.isfile(orderFilePath):
+        with open(orderFilePath, 'r') as f:
+            for item in f.read().split('\n'):
+                if len(item) > 0:
+                    sortedDirs.append(item)
+    else:
+        sortedDirs = sorted(
+            os.listdir(currPath),
+            key=lambda x: (
+                x in config.sortAfter(),
+                x not in config.sortBefore(),
+                os.path.isdir(os.path.join(currPath, x)),
+                x.split('.')[0].lower()
+            )
         )
-    )
     isFirst = True
     for dirOrFile in sortedDirs:
         f = os.path.join(currPath, dirOrFile)

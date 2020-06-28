@@ -63,6 +63,8 @@ class Config:
         "\\normalsize"
     ]
 
+    orderFileName = ".mkcpr_order"
+
     def __init__(self):
         path = os.getcwd()
         self.properties = {
