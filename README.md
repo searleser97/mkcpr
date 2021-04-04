@@ -96,6 +96,16 @@ mkcpr [-c|-h]
   </tr>
 </table>
 
+## Override Default Ordering
+
+You can specify the order of files and folders by creating a file called `.mkcpr_order` in the directory where you want to override the default ordering
+(lexicographic).
+This file should contain the name of all the files and folders that are in the same directory sorted as you desire.
+
+Example: https://github.com/searleser97/Algorithms-In-A-White-Box/blob/master/Book/.mkcpr_order
+
+
+
 ## Example
 
 You can see an example of how a working directory would look like in a real *Competitive Progamming Reference* [HERE](https://github.com/searleser97/competitive-programming-reference)
